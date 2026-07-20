@@ -1,0 +1,39 @@
+{
+  "instrument": "EUR/AUD",
+  "slug": "euraud",
+  "symbol": "EUR/AUD (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Stand 17.07.2026",
+  "price": "~1,6400",
+  "change_day": "−0,01 %",
+  "change_dir": "flat",
+  "change_week": "seitwärts",
+  "bias": "neutral",
+  "bias_label": "Neutral ◆",
+  "bias_note": "unter 200-Tage-SMA · RSI 42",
+  "cards": [
+    {"label": "EUR/AUD", "price": "~1,6400", "chg": "−0,01 % (24h)", "dir": "flat"},
+    {"label": "50 / 200-Tage-SMA", "price": "1,64 / 1,66", "chg": "200-SMA als Deckel", "dir": "down"},
+    {"label": "Momentum RSI(14)", "price": "42,34", "chg": "neutral, leicht schwach", "dir": "flat"}
+  ],
+  "fazit": "EUR/AUD pendelt um 1,6400 nahe der 50-Tage-SMA (1,64), während die 200-Tage-SMA bei 1,66 als Deckel wirkt. Das Sentiment ist leicht bärisch (rund 53 % grüne Tage im Monat, RSI ~42 neutral), Kurzfrist-Prognosen deuten auf leichten Abwärtsdruck. Ohne klaren Impuls überwiegt der <b>neutrale Range-Charakter</b> – Richtung geben die Zinsdifferenz EZB/RBA und die Rohstofflage (fester AUD bei hohen Öl-/Metallpreisen).",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "1,6700", "note": "oberes Range-Ende"},
+    {"type": "res", "name": "Resistance 2", "value": "1,6600", "note": "200-Tage-SMA (Deckel)"},
+    {"type": "res", "name": "Resistance 1", "value": "1,6500", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "1,6400", "note": "50-Tage-SMA / aktueller Bereich"},
+    {"type": "sup", "name": "Support 1", "value": "1,6300", "note": "erster Halt (Kurzfrist-Ziel)"},
+    {"type": "sup", "name": "Support 2", "value": "1,6200", "note": "Zwischenunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "1,6100", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">neutral / Range</b> (unter 200-SMA) · Momentum: RSI ≈ 42, leicht schwach · Level als Näherungswerte.",
+  "drivers": [
+    {"title": "Gleitende Durchschnitte", "text": "50-Tage-SMA (1,64) stützt, 200-Tage-SMA (1,66) deckelt – klar definierte Range."},
+    {"title": "Rohstoff-AUD", "text": "Hohe Öl- und Metallpreise tendenziell AUD-stützend – das bremst EUR/AUD nach oben."},
+    {"title": "Zinsdifferenz", "text": "Relative Ausrichtung von EZB und RBA bestimmt die mittelfristige Richtung; EZB-Sitzung nächste Woche als Impuls."},
+    {"title": "Momentum", "text": "RSI ~42 und leicht bärisches Monatsbild deuten auf kurzfristigen Abwärtsdruck ohne starke Dynamik."},
+    {"title": "Ausblick", "text": "Prognosen sehen den Kurs zum Jahresende wieder nahe 1,64 – überwiegend seitwärts."}
+  ],
+  "bull": "Ein Bruch über die 200-SMA bei <b>1,6600</b> öffnet <b>1,6700</b>+. Nötig wären ein schwächerer AUD (fallende Rohstoffe) oder eine straffere EZB.",
+  "bear": "Unter <b>1,6300</b> werden <b>1,6200/1,6100</b> aktiviert. Fester AUD durch hohe Rohstoffpreise ist das bärische Szenario innerhalb der Range."
+}

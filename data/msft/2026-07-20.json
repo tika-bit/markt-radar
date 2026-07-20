@@ -1,0 +1,39 @@
+{
+  "instrument": "Microsoft",
+  "slug": "msft",
+  "symbol": "MSFT · Microsoft (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Schlusskurs 17.07.2026",
+  "price": "~393,82 $",
+  "change_day": "−7,28 $ (−1,82 %)",
+  "change_dir": "down",
+  "change_week": "unter Druck",
+  "bias": "neutral",
+  "bias_label": "Neutral / leicht bärisch ◆",
+  "bias_note": "KI-Ausgaben-Sorgen · weit unter ATH",
+  "cards": [
+    {"label": "MSFT", "price": "~393,82 $", "chg": "−7,28 $ (−1,82 %)", "dir": "down"},
+    {"label": "52-Wochen-Spanne", "price": "349,20 – 555,45 $", "chg": "im unteren Drittel", "dir": "down"},
+    {"label": "Analysten-Kursziel", "price": "~558,77 $", "chg": "Strong Buy · +42 % Potenzial", "dir": "up"}
+  ],
+  "fazit": "Microsoft fiel am Freitag um −1,8 % auf ~393,82 $ und steht im unteren Bereich der 52-W-Spanne (349,20–555,45 $), deutlich unter dem Rekordhoch. Belastend sind Sorgen über die hohen KI-Investitionen und die allgemeine Nervosität bei den \"Magnificent Seven\". Fundamental bleibt die Wall Street klar bullisch (Konsens \"Strong Buy\", Ziel ~558 $, +42 %) und das KGV (~23) ist moderater als bei Apple. Kurzfristig <b>neutral bis leicht bärisch</b> im Abwärtsdruck – Blick auf die Zahlen am 29.07.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "425", "note": "übergeordneter Widerstand"},
+    {"type": "res", "name": "Resistance 2", "value": "410", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "400", "note": "runde Marke direkt darüber"},
+    {"type": "piv", "name": "Pivot", "value": "394", "note": "aktueller Bereich / Drehpunkt"},
+    {"type": "sup", "name": "Support 1", "value": "390", "note": "erster Halt"},
+    {"type": "sup", "name": "Support 2", "value": "380", "note": "Zwischenunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "370", "note": "Richtung 52-W-Tief (349)"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">kurzfristig abwärts</b> (unter Druck) · Momentum: schwach nach −1,8 % · Bewertung KGV ~23 · Level gerundete Näherungswerte.",
+  "drivers": [
+    {"title": "KI-Capex-Sorgen", "text": "Hohe Investitionen in KI-Infrastruktur belasten die Stimmung – Anleger hinterfragen den kurzfristigen Return."},
+    {"title": "Sektor-Nervosität", "text": "Volatilität bei den \"Magnificent Seven\" drückt breit auf die großen Tech-Werte."},
+    {"title": "Analysten (Stütze)", "text": "Konsens \"Strong Buy\", mittleres Kursziel ~558,77 $ (≈ +42 %) – deutliche Diskrepanz zum aktuellen Kurs."},
+    {"title": "Bewertung", "text": "KGV ~23,5 ist moderater als bei anderen Mega-Caps – bietet relativ mehr Bewertungspuffer."},
+    {"title": "Termin", "text": "Quartalszahlen am 29.07.2026 – Fokus auf Cloud-/KI-Wachstum und Capex-Ausblick als Kurskatalysator."}
+  ],
+  "bull": "Stabilisierung über <b>400 $</b> öffnet <b>410/425 $</b>. Starke Cloud-/KI-Zahlen am 29.07. und nachlassende Capex-Sorgen wären die Treiber – das Analystenziel liegt weit darüber.",
+  "bear": "Bruch unter <b>390 $</b> aktiviert <b>380</b>, darunter <b>370 $</b> Richtung 52-W-Tief. Anhaltende KI-Ausgaben-Sorgen und Tech-Abgaben sind das bärische Szenario."
+}

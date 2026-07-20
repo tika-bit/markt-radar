@@ -1,42 +1,58 @@
 #!/usr/bin/env python3
 """
 Baut die statische Analyse-Seite aus den JSON-Dateien unter data/<slug>/<datum>.json.
+Instrumente sind Kategorien zugeordnet (Rohstoffe, Index, Aktien, Waehrungen, ETFs).
 Erzeugt:
-  index.html                 -> Startseite mit Kachel je Instrument (neueste Analyse)
-  <slug>/index.html          -> Instrument-Übersicht: neueste Analyse + Archivliste
+  index.html                 -> Startseite, nach Kategorien gruppiert (Kachel je Instrument)
+  <slug>/index.html          -> Instrument-Uebersicht: neueste Analyse + Archivliste
   <slug>/<datum>.html        -> feste Tagesseite (bleibt liegen = Archiv)
   data/manifest.json         -> Register aller Seiten
 Aufruf: python3 build_site.py
 """
-import json, glob, os
+import json, glob, os, re as _re
 from datetime import datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Reihenfolge + Anzeigenamen der Instrumente. Neue Instrumente hier ergaenzen.
-INSTRUMENTS = [
-    ("wti",    "WTI Crude Oil"),
-    ("gold",   "Gold"),
-    ("silber", "Silber"),
+# Kategorien in Anzeige-Reihenfolge.
+CATEGORIES = [
+    ("rohstoffe",  "Rohstoffe"),
+    ("index",      "Index"),
+    ("aktien",     "Aktien"),
+    ("waehrungen", "Währungen"),
+    ("etf",        "ETFs"),
 ]
+
+# Instrumente: (slug, Anzeigename, Kategorie). Neue Instrumente hier ergaenzen.
+INSTRUMENTS = [
+    ("wti",    "WTI Crude Oil", "rohstoffe"),
+    ("gold",   "Gold",          "rohstoffe"),
+    ("silber", "Silber",        "rohstoffe"),
+    ("dax",    "DAX",           "index"),
+    ("nas100", "Nasdaq 100",    "index"),
+    ("aapl",   "Apple",         "aktien"),
+    ("msft",   "Microsoft",     "aktien"),
+    ("eurusd", "EUR/USD",       "waehrungen"),
+    ("euraud", "EUR/AUD",       "waehrungen"),
+]
+
+# TradingView-Symbole je Instrument (Live-Chart).
+TV_SYMBOL = {
+    "wti": "TVC:USOIL", "gold": "OANDA:XAUUSD", "silber": "OANDA:XAGUSD",
+    "dax": "XETR:DAX", "nas100": "NASDAQ:NDX",
+    "aapl": "NASDAQ:AAPL", "msft": "NASDAQ:MSFT",
+    "eurusd": "FX:EURUSD", "euraud": "OANDA:EURAUD",
+}
 
 BIAS_CLASS = {"bullish": "bullish", "bearish": "bearish", "neutral": "neutral"}
 DIR_CLASS  = {"up": "up", "down": "down", "flat": "flat"}
 
-# TradingView-Symbole je Instrument (Live-Chart). Neue Instrumente hier ergaenzen.
-TV_SYMBOL = {
-    "wti":    "TVC:USOIL",
-    "gold":   "OANDA:XAUUSD",
-    "silber": "OANDA:XAGUSD",
-}
-
-import re as _re
 def parse_num(s):
-    """Extrahiert einen Zahlenwert aus deutschen Preis-Strings ('~82,50 $', '4.170', '81,80 – 83,50')."""
+    """Extrahiert einen Zahlenwert aus deutschen Preis-Strings ('~82,50 $', '25.000', '1,1380 – 1,1480')."""
     if not isinstance(s, str):
         return None
     t = s
-    for ch in ["~", "≈", "$", "%", "−"]:
+    for ch in ["~", "≈", "$", "%", "−", "€"]:
         t = t.replace(ch, " ")
     parts = _re.split(r"[–]", t)
     vals = []
@@ -52,7 +68,56 @@ def parse_num(s):
         return None
     return sum(vals) / len(vals)
 
-def render_tvchart(slug, uid):
+def de_date(iso):
+    try:
+        return datetime.strptime(iso, "%Y-%m-%d").strftime("%d.%m.%Y")
+    except Exception:
+        return iso
+
+def cat_of(slug):
+    for s, n, c in INSTRUMENTS:
+        if s == slug:
+            return c
+    return None
+
+def load(slug):
+    files = sorted(glob.glob(os.path.join(ROOT, "data", slug, "*.json")), reverse=True)
+    out = []
+    for f in files:
+        with open(f, encoding="utf-8") as fh:
+            out.append(json.load(fh))
+    return out  # neueste zuerst
+
+def page_head(title, css_path, base):
+    nav = ['<a href="%sindex.html">Übersicht</a>' % base]
+    for cslug, cname in CATEGORIES:
+        nav.append('<a href="%sindex.html#cat-%s">%s</a>' % (base, cslug, cname))
+    return """<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>%s</title>
+<link rel="stylesheet" href="%s">
+</head><body>
+<div class="topbar">
+  <div class="sub"><a href="%sindex.html">markt-radar</a> · tägliche Analysen</div>
+  <div class="nav">%s</div>
+</div>
+""" % (title, css_path, base, " ".join(nav))
+
+FOOTER = """<div class="footer">
+Automatisch generierte Tagesanalysen · alle Preise sind Näherungswerte · keine Anlageberatung.
+Zuletzt gebaut: %s
+</div></body></html>"""
+
+DISCLAIMER = """<div class="disc">
+<span class="tag">Keine Anlageberatung</span><span class="tag">CFDs sind gehebelt</span><span class="tag">Live-Kurse prüfen</span><br>
+Diese Analyse dient ausschließlich Informations- und Bildungszwecken und stellt <b>keine Anlage-, Finanz- oder Handelsberatung</b> dar.
+Alle Preise und Level sind <b>Näherungswerte</b> auf Basis öffentlich recherchierter Quellen (%s) und können vom aktuellen Marktpreis abweichen.
+CFDs sind gehebelte Produkte mit hohem Verlustrisiko – ein Totalverlust des eingesetzten Kapitals ist möglich.
+Prüfe stets die <b>Live-Kurse und Kontraktspezifikationen in deiner Pepperstone-Plattform</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
+</div>"""
+
+def render_tvchart(slug):
     sym = TV_SYMBOL.get(slug)
     if not sym:
         return ""
@@ -71,7 +136,6 @@ def render_tvchart(slug, uid):
             % (cfg, sym))
 
 def render_levelmap(d):
-    """Selbstgezeichnete SVG-Level-Karte aus Support/Resistance/Pivot + aktuellem Preis."""
     pts = []
     for l in d.get("levels", []):
         v = parse_num(l.get("value", ""))
@@ -115,56 +179,10 @@ def render_levelmap(d):
             '<span style="color:#2ecc71">Support</span> · '
             '<span style="color:#f5a623">aktueller Preis</span> · Näherungswerte.</div>')
 
-def de_date(iso):
-    try:
-        return datetime.strptime(iso, "%Y-%m-%d").strftime("%d.%m.%Y")
-    except Exception:
-        return iso
-
-def load(slug):
-    files = sorted(glob.glob(os.path.join(ROOT, "data", slug, "*.json")), reverse=True)
-    out = []
-    for f in files:
-        with open(f, encoding="utf-8") as fh:
-            d = json.load(fh)
-        out.append(d)
-    return out  # neueste zuerst
-
-def page_head(title, css_path, nav_active=None):
-    nav = []
-    nav.append(('<a href="%sindex.html">Übersicht</a>' % css_path.replace("assets/style.css","")))
-    for slug, name in INSTRUMENTS:
-        base = css_path.replace("assets/style.css","")
-        nav.append('<a href="%s%s/index.html">%s</a>' % (base, slug, name))
-    return """<!DOCTYPE html>
-<html lang="de"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>%s</title>
-<link rel="stylesheet" href="%s">
-</head><body>
-<div class="topbar">
-  <div class="sub">Tägliche Markt-Analysen · dunkel</div>
-  <div class="nav">%s</div>
-</div>
-""" % (title, css_path, " ".join(nav))
-
-FOOTER = """<div class="footer">
-Automatisch generierte Tagesanalysen · alle Preise sind Näherungswerte · keine Anlageberatung.
-Zuletzt gebaut: %s
-</div></body></html>"""
-
-DISCLAIMER = """<div class="disc">
-<span class="tag">Keine Anlageberatung</span><span class="tag">CFDs sind gehebelt</span><span class="tag">Live-Kurse prüfen</span><br>
-Diese Analyse dient ausschließlich Informations- und Bildungszwecken und stellt <b>keine Anlage-, Finanz- oder Handelsberatung</b> dar.
-Alle Preise und Level sind <b>Näherungswerte</b> auf Basis öffentlich recherchierter Quellen (%s) und können vom aktuellen Marktpreis abweichen.
-CFDs sind gehebelte Produkte mit hohem Verlustrisiko – ein Totalverlust des eingesetzten Kapitals ist möglich.
-Prüfe stets die <b>Live-Kurse und Kontraktspezifikationen in deiner Pepperstone-Plattform</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
-</div>"""
-
-def render_analysis(d, css_path):
+def render_analysis(d):
     cards = "".join(
         '<div class="card"><div class="label">%s</div><div class="price">%s</div><div class="chg %s">%s</div></div>'
-        % (c["label"], c["price"], DIR_CLASS.get(c.get("dir","flat"),"flat"), c["chg"])
+        % (c["label"], c["price"], DIR_CLASS.get(c.get("dir", "flat"), "flat"), c["chg"])
         for c in d["cards"]
     )
     rows = "".join(
@@ -172,60 +190,62 @@ def render_analysis(d, css_path):
         % (l["type"], l["name"], l["type"], l["value"], l["note"])
         for l in d["levels"]
     )
-    drivers = "".join(
-        '<li><b>%s:</b> %s</li>' % (dr["title"], dr["text"]) for dr in d["drivers"]
-    )
+    drivers = "".join('<li><b>%s:</b> %s</li>' % (dr["title"], dr["text"]) for dr in d["drivers"])
     bias_cls = BIAS_CLASS.get(d["bias"], "neutral")
-    html = []
-    html.append('<div class="header"><div>')
-    html.append('<h1>%s – Tagesanalyse</h1>' % d["instrument"])
-    html.append('<div class="sub">Instrument: %s · Handelstag %s</div>' % (d["symbol"], de_date(d["date"])))
-    html.append('<div class="sub">Datenstand: %s · alle Preise Näherungswerte</div>' % d["datastand"])
-    html.append('</div><div style="text-align:right">')
-    html.append('<span class="badge %s">BIAS: %s</span>' % (bias_cls, d["bias_label"].upper()))
-    html.append('<div class="sub" style="margin-top:8px">%s</div>' % d["bias_note"])
-    html.append('</div></div>')
-    html.append('<div class="cards">%s</div>' % cards)
-    html.append('<div class="fazit"><b>Kurz-Fazit:</b> %s</div>' % d["fazit"])
-    html.append(render_tvchart(d.get("slug", ""), d.get("date", "")))
-    html.append('<h2>Technische Level</h2>')
-    html.append('<table><thead><tr><th>Typ</th><th>Level (≈ $)</th><th>Bedeutung</th></tr></thead><tbody>%s</tbody></table>' % rows)
-    html.append('<div class="sub" style="margin-top:8px">%s</div>' % d["trend_note"])
-    html.append(render_levelmap(d))
-    html.append('<h2>Fundamentale Treiber</h2><ul class="drv">%s</ul>' % drivers)
-    html.append('<h2>Szenarien für den Tag</h2><div class="scen">')
-    html.append('<div class="box bull"><h3>▲ Bull-Szenario</h3><p>%s</p></div>' % d["bull"])
-    html.append('<div class="box bear"><h3>▼ Bär-Szenario</h3><p>%s</p></div>' % d["bear"])
-    html.append('</div>')
-    html.append(DISCLAIMER % d["datastand"])
-    return "\n".join(html)
+    h = []
+    h.append('<div class="header"><div>')
+    h.append('<h1>%s – Tagesanalyse</h1>' % d["instrument"])
+    h.append('<div class="sub">Instrument: %s · Handelstag %s</div>' % (d["symbol"], de_date(d["date"])))
+    h.append('<div class="sub">Datenstand: %s · alle Preise Näherungswerte</div>' % d["datastand"])
+    h.append('</div><div style="text-align:right">')
+    h.append('<span class="badge %s">BIAS: %s</span>' % (bias_cls, d["bias_label"].upper()))
+    h.append('<div class="sub" style="margin-top:8px">%s</div>' % d["bias_note"])
+    h.append('</div></div>')
+    h.append('<div class="cards">%s</div>' % cards)
+    h.append('<div class="fazit"><b>Kurz-Fazit:</b> %s</div>' % d["fazit"])
+    h.append(render_tvchart(d.get("slug", "")))
+    h.append('<h2>Technische Level</h2>')
+    h.append('<table><thead><tr><th>Typ</th><th>Level (≈)</th><th>Bedeutung</th></tr></thead><tbody>%s</tbody></table>' % rows)
+    h.append('<div class="sub" style="margin-top:8px">%s</div>' % d["trend_note"])
+    h.append(render_levelmap(d))
+    h.append('<h2>Fundamentale Treiber</h2><ul class="drv">%s</ul>' % drivers)
+    h.append('<h2>Szenarien für den Tag</h2><div class="scen">')
+    h.append('<div class="box bull"><h3>▲ Bull-Szenario</h3><p>%s</p></div>' % d["bull"])
+    h.append('<div class="box bear"><h3>▼ Bär-Szenario</h3><p>%s</p></div>' % d["bear"])
+    h.append('</div>')
+    h.append(DISCLAIMER % d["datastand"])
+    return "\n".join(h)
 
 def write(path, content):
-    os.makedirs(os.path.dirname(path), exist_ok=True) if os.path.dirname(path) else None
+    d = os.path.dirname(path)
+    if d:
+        os.makedirs(d, exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(content)
 
 def main():
     built = datetime.utcnow().strftime("%d.%m.%Y %H:%M UTC")
-    manifest = {"built": built, "instruments": {}}
+    manifest = {"built": built, "categories": {}, "instruments": {}}
 
-    for slug, name in INSTRUMENTS:
+    latest_by_slug = {}
+    for slug, name, cat in INSTRUMENTS:
         entries = load(slug)
-        manifest["instruments"][slug] = {"name": name, "pages": [e["date"] for e in entries]}
+        manifest["instruments"][slug] = {"name": name, "category": cat, "pages": [e["date"] for e in entries]}
         if not entries:
             continue
+        latest_by_slug[slug] = entries[0]
 
-        # 1) Tagesseiten
+        # Tagesseiten
         for d in entries:
-            page = page_head("%s – %s" % (name, de_date(d["date"])), "../assets/style.css")
-            page += render_analysis(d, "../assets/style.css")
+            page = page_head("%s – %s" % (name, de_date(d["date"])), "../assets/style.css", "../")
+            page += render_analysis(d)
             page += FOOTER % built
             write(os.path.join(ROOT, slug, d["date"] + ".html"), page)
 
-        # 2) Instrument-Index: neueste Analyse + Archiv
+        # Instrument-Index: neueste + Archiv
         latest = entries[0]
-        idx = page_head("%s – Analysen" % name, "../assets/style.css")
-        idx += render_analysis(latest, "../assets/style.css")
+        idx = page_head("%s – Analysen" % name, "../assets/style.css", "../")
+        idx += render_analysis(latest)
         if len(entries) > 1:
             arch = "".join(
                 '<li><a href="%s.html"><span class="a-date">%s</span></a>'
@@ -239,27 +259,35 @@ def main():
         idx += FOOTER % built
         write(os.path.join(ROOT, slug, "index.html"), idx)
 
-    # 3) Startseite mit Kacheln
-    root = page_head("Markt-Analysen · Übersicht", "assets/style.css")
-    root += '<div class="header"><div><h1>Tägliche Markt-Analysen</h1>'
-    root += '<div class="sub">WTI · Gold · Silber – kombiniert technisch + fundamental. Neue Instrumente folgen.</div>'
-    root += '</div></div>'
-    tiles = []
-    for slug, name in INSTRUMENTS:
-        entries = load(slug)
-        if not entries:
-            continue
-        d = entries[0]
-        bias_cls = BIAS_CLASS.get(d["bias"], "neutral")
-        tiles.append(
-            '<a class="tile" href="%s/index.html">'
-            '<div class="t-name">%s</div><div class="t-sym">%s</div>'
-            '<div class="t-price">%s</div>'
-            '<div class="t-foot"><span class="badge %s">%s</span>'
-            '<span class="a-meta">%s</span></div></a>'
-            % (slug, name, d["symbol"], d["price"], bias_cls, d["bias_label"], de_date(d["date"]))
-        )
-    root += '<div class="tiles">%s</div>' % "".join(tiles)
+    # Startseite nach Kategorien
+    root = page_head("markt-radar · Übersicht", "assets/style.css", "")
+    root += '<div class="header"><div><h1>markt-radar</h1>'
+    root += '<div class="sub">Tägliche Markt-Analysen – kombiniert technisch + fundamental. Kategorien: '
+    root += " · ".join(n for _, n in CATEGORIES) + '.</div></div></div>'
+
+    for cslug, cname in CATEGORIES:
+        slugs = [s for s, n, c in INSTRUMENTS if c == cslug]
+        manifest["categories"][cslug] = {"name": cname, "instruments": slugs}
+        root += '<h2 id="cat-%s">%s</h2>' % (cslug, cname)
+        tiles = []
+        for slug in slugs:
+            d = latest_by_slug.get(slug)
+            if not d:
+                continue
+            bias_cls = BIAS_CLASS.get(d["bias"], "neutral")
+            tiles.append(
+                '<a class="tile" href="%s/index.html">'
+                '<div class="t-name">%s</div><div class="t-sym">%s</div>'
+                '<div class="t-price">%s</div>'
+                '<div class="t-foot"><span class="badge %s">%s</span>'
+                '<span class="a-meta">%s</span></div></a>'
+                % (slug, d["instrument"], d["symbol"], d["price"], bias_cls, d["bias_label"], de_date(d["date"]))
+            )
+        if tiles:
+            root += '<div class="tiles">%s</div>' % "".join(tiles)
+        else:
+            root += '<div class="sub">Folgt in Kürze.</div>'
+
     root += FOOTER % built
     write(os.path.join(ROOT, "index.html"), root)
 
@@ -267,7 +295,7 @@ def main():
         json.dump(manifest, fh, ensure_ascii=False, indent=2)
 
     print("Build OK:", built)
-    print("Instrumente:", ", ".join(s for s,_ in INSTRUMENTS))
+    print("Instrumente:", ", ".join(s for s, _, _ in INSTRUMENTS))
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,39 @@
+{
+  "instrument": "Nasdaq 100",
+  "slug": "nas100",
+  "symbol": "NAS100 · US Tech 100 (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Stand 17.07.2026",
+  "price": "~29.850",
+  "change_day": "Erholung",
+  "change_dir": "up",
+  "change_week": "von ~29.100 erholt",
+  "bias": "bullish",
+  "bias_label": "Bullish ▲",
+  "bias_note": "CPI kühlt ab · RSI ~61",
+  "cards": [
+    {"label": "NAS100 / US Tech 100", "price": "~29.850", "chg": "Erholung von ~29.100", "dir": "up"},
+    {"label": "Momentum RSI(14)", "price": "60,95", "chg": "unter 70 – Luft nach oben", "dir": "up"},
+    {"label": "US-CPI Juni", "price": "3,5 %", "chg": "unter Prognose (3,8 %)", "dir": "up"}
+  ],
+  "fazit": "Der Nasdaq 100 hat sich vom Session-Tief nahe 29.100 auf rund 29.850 erholt und nähert sich dem Wochenhoch (~29.900). Auslöser war der kühler als erwartete US-CPI (3,5 % vs. 3,8 % Prognose), der die Fed-Straffungsangst dämpfte, plus eine Halbleiter-Erholung. RSI(14) bei ~61 lässt noch Spielraum nach oben. Kurzfristig <b>bullisch</b>, solange 29.505 hält – wichtigster Impulsgeber ist der Ton der Fed (Warsh-Anhörung).",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "30.200", "note": "Ausbruchsziel über dem Wochenhoch"},
+    {"type": "res", "name": "Resistance 2", "value": "29.900", "note": "Wochenhoch-Zone"},
+    {"type": "res", "name": "Resistance 1", "value": "29.872", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "29.725", "note": "Drehpunkt / Intraday-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "29.505", "note": "erster Halt · Bruch kippt Kurzfrist-Bias"},
+    {"type": "sup", "name": "Support 2", "value": "29.100", "note": "jüngstes Session-Tief"},
+    {"type": "sup", "name": "Support 3", "value": "28.800", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--green)\">bullisch / Erholung</b> · Momentum: RSI ≈ 61, steigend · Volatilität: nachrichtengetrieben (Fed-Anhörung).",
+  "drivers": [
+    {"title": "Inflationsentspannung", "text": "US-CPI im Juni auf 3,5 % (Prognose 3,8 %) → weniger Druck auf die Fed, Rückenwind für Wachstums-/Tech-Werte."},
+    {"title": "Halbleiter-Rally", "text": "Chip-Werte führen die Erholung an, nachdem die Nahost-bedingte Schwäche nachließ."},
+    {"title": "Fed-Anhörung", "text": "Anhörung von Fed-Chef Warsh im Fokus – der Markt sucht Signale zur Zinsrichtung nach dem hawkishen Juni-Ton."},
+    {"title": "Öl-Risiko", "text": "Hohe Ölpreise (Nahost) bleiben ein latentes Inflationsrisiko, das die Fed restriktiver halten könnte – Gegengewicht."},
+    {"title": "Momentum", "text": "RSI ~61 unter der Überkauft-Schwelle (70) → charttechnisch noch Raum für weitere Aufwärtsbewegung."}
+  ],
+  "bull": "Ausbruch über <b>29.900</b> öffnet <b>30.200</b>+. Weiter kühlende Inflation und ein nicht-hawkisher Warsh-Ton wären die Treiber. Bestätigung: Schluss über 29.900.",
+  "bear": "Verlust von <b>29.505</b> aktiviert <b>29.100</b>, darunter <b>28.800</b>. Ein hawkisher Fed-Ton oder ein Öl-Schub, der Inflationsangst neu entfacht, ist das bärische Szenario."
+}

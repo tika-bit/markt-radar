@@ -1,0 +1,39 @@
+{
+  "instrument": "EUR/USD",
+  "slug": "eurusd",
+  "symbol": "EUR/USD (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Stand 17.07.2026",
+  "price": "~1,1400",
+  "change_day": "seitwärts",
+  "change_dir": "flat",
+  "change_week": "Bärflagge 1,1380–1,1480",
+  "bias": "bearish",
+  "bias_label": "Bärisch ▼",
+  "bias_note": "Bärflagge · hawkishe Fed · starker USD",
+  "cards": [
+    {"label": "EUR/USD", "price": "~1,1400", "chg": "in Bärflagge", "dir": "flat"},
+    {"label": "Handelsspanne", "price": "1,1380 – 1,1480", "chg": "Bären in Kontrolle", "dir": "down"},
+    {"label": "Termin", "price": "EZB-Sitzung", "chg": "nächste Woche", "dir": "flat"}
+  ],
+  "fazit": "EUR/USD steckt nahe 1,1400 in einer bärischen Flaggenformation (Range ~1,1380–1,1480). Die Bären haben die Kontrolle, wenngleich ohne starke Dynamik. Belastend für den Euro: eine hawkishe Fed (ein/zwei gute Inflationsberichte reichen den Notenbankern nicht) und Nahost-bedingt hohe Ölpreise, die die USD-Nachfrage stützen. Die EZB-Sitzung nächste Woche ist der Risikotermin (Balance zwischen Disinflation und Stagflationssorge). Kurzfristig <b>bärisch</b>; ein Bruch der Flagge zielt auf 1,1300.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "1,1600", "note": "obere Widerstandszone (1,1575–1,1600)"},
+    {"type": "res", "name": "Resistance 2", "value": "1,1575", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "1,1500", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "1,1400", "note": "aktueller Bereich / Flaggenmitte"},
+    {"type": "sup", "name": "Support 1", "value": "1,1300", "note": "Flaggen-Bruchziel · Schlüsselmarke"},
+    {"type": "sup", "name": "Support 2", "value": "1,1250", "note": "Folgeunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "1,1200", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--red)\">bärisch</b> (Bärflagge) · Momentum: abwärts, aber ohne starke Überzeugung · Level als Näherungswerte.",
+  "drivers": [
+    {"title": "Fed (hawkish)", "text": "Notenbanker betonen, ein/zwei gute Inflationsberichte reichten nicht als Beleg für Preisstabilität – stützt den USD."},
+    {"title": "Öl & Safe-Haven-USD", "text": "Nahost-Spannungen treiben Öl und die USD-Nachfrage gleichzeitig – doppelter Gegenwind für EUR/USD."},
+    {"title": "EZB", "text": "Sitzung nächste Woche: schwieriger Spagat zwischen nachlassender Inflation und Stagflationssorgen durch teure Energie."},
+    {"title": "Charttechnik", "text": "Bärische Flagge intakt; Bruch nach unten aktiviert 1,1300 als nächstes Ziel."},
+    {"title": "Inflationsbild", "text": "Weichere US-Daten werden durch öl-getriebene Inflationsrisiken relativiert – kein klares Dollar-Verkaufssignal."}
+  ],
+  "bull": "Ein Anstieg über <b>1,1500</b> schwächt die Bärflagge und öffnet <b>1,1575–1,1600</b>. Nötig wären ein dovisher Fed-Ton oder eine überraschend straffe EZB.",
+  "bear": "Bruch unter <b>1,1380/1,1300</b> bestätigt die Flagge Richtung <b>1,1250/1,1200</b>. Hawkishe Fed + fester USD durch Öl sind das bärische Kernargument."
+}

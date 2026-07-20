@@ -1,0 +1,39 @@
+{
+  "instrument": "Apple",
+  "slug": "aapl",
+  "symbol": "AAPL · Apple (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Schlusskurs 17.07.2026",
+  "price": "~333,74 $",
+  "change_day": "+0,48 $ (+0,14 %)",
+  "change_dir": "up",
+  "change_week": "nahe Allzeithoch",
+  "bias": "bullish",
+  "bias_label": "Bullish ▲",
+  "bias_note": "nahe ATH · HSBC-Upgrade auf Buy",
+  "cards": [
+    {"label": "AAPL", "price": "~333,74 $", "chg": "+0,48 $ (+0,14 %)", "dir": "up"},
+    {"label": "52-Wochen-Spanne", "price": "201,50 – 334,99 $", "chg": "handelt am oberen Rand", "dir": "up"},
+    {"label": "Marktkapitalisierung", "price": "~4,9 Bio. $", "chg": "kurz wertvollstes Unternehmen", "dir": "up"}
+  ],
+  "fazit": "Apple notiert bei ~333,74 $, direkt am Allzeithoch (52-W-Hoch 334,99 $), und überholte am 17.07. kurz Nvidia als wertvollstes Unternehmen der Welt. Ein HSBC-Upgrade auf \"Buy\" und Zuversicht in Apples \"wait and see\"-KI-Strategie stützen. Wermutstropfen: Das Analysten-Kursziel (~318 $) liegt leicht <b>unter</b> dem Kurs und das KGV (~40) ist ambitioniert – viel Optimismus ist eingepreist. Vor den Quartalszahlen (30.07.) charttechnisch <b>bullisch</b> am Ausbruchspunkt, aber anfällig für Gewinnmitnahmen.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "350", "note": "psychologisches Ziel bei Ausbruch"},
+    {"type": "res", "name": "Resistance 2", "value": "340", "note": "Zwischenwiderstand über ATH"},
+    {"type": "res", "name": "Resistance 1", "value": "335", "note": "Allzeithoch-Zone (334,99)"},
+    {"type": "piv", "name": "Pivot", "value": "330", "note": "runde Marke / Ausbruchsbasis"},
+    {"type": "sup", "name": "Support 1", "value": "325", "note": "erster Halt bei Rücksetzern"},
+    {"type": "sup", "name": "Support 2", "value": "318", "note": "Analysten-Konsensziel"},
+    {"type": "sup", "name": "Support 3", "value": "310", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--green)\">bullisch</b> (am ATH) · Momentum: stark, aber Bewertung ambitioniert (KGV ~40) · Level gerundete Näherungswerte.",
+  "drivers": [
+    {"title": "Bewertungs-Meilenstein", "text": "Überholte am 17.07. kurz Nvidia als wertvollstes Unternehmen (~4,9 Bio. $ Marktcap) – starkes Momentum-Signal."},
+    {"title": "Analysten", "text": "HSBC-Upgrade auf \"Buy\"; Konsens \"Buy\" (47 Analysten). Aber: mittleres Kursziel ~318 $ liegt leicht unter dem aktuellen Kurs."},
+    {"title": "KI-Strategie", "text": "Apples zurückhaltender \"wait and see\"-Ansatz bei KI wird zunehmend als Stärke gewertet."},
+    {"title": "Risiken", "text": "Geschäftsgeheimnis-Klage gegen OpenAI, laufende DOJ-Kartellgespräche; zudem Preiserhöhungen bei Apple Music/One."},
+    {"title": "Termin", "text": "Quartalszahlen am 30.07.2026 – potenzieller Volatilitätsauslöser; KGV ~40 lässt wenig Spielraum für Enttäuschungen."}
+  ],
+  "bull": "Ein Tagesschluss über <b>335 $</b> (ATH) bestätigt den Ausbruch Richtung <b>340/350 $</b>. Anhaltendes Mega-Cap-Momentum und starke Zahlen am 30.07. wären die Treiber.",
+  "bear": "Gewinnmitnahmen unter <b>325 $</b> führen zum Konsensziel <b>318 $</b>, darunter <b>310 $</b>. Ambitionierte Bewertung und ein enttäuschender Ausblick sind das bärische Risiko."
+}

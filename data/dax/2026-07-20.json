@@ -1,0 +1,39 @@
+{
+  "instrument": "DAX",
+  "slug": "dax",
+  "symbol": "GER40 · DAX (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Stand 17.07.2026",
+  "price": "~25.000",
+  "change_day": "−0,48 %",
+  "change_dir": "down",
+  "change_week": "leicht schwächer",
+  "bias": "neutral",
+  "bias_label": "Neutral / leicht bärisch ◆",
+  "bias_note": "Öl/Nahost belastet · Tech schwach",
+  "cards": [
+    {"label": "DAX / GER40", "price": "~25.000", "chg": "−0,48 % Tag", "dir": "down"},
+    {"label": "Jahresverlauf", "price": "+4,2 % YTD", "chg": "Monat +0,5 %", "dir": "up"},
+    {"label": "Belastung", "price": "Öl & Tech", "chg": "Nahost-Risiko, Chips schwach", "dir": "down"}
+  ],
+  "fazit": "Der DAX konsolidiert nahe 25.000 und gab zuletzt rund −0,5 % ab; zeitweise fiel er unter 24.900. Belastend wirken die Nahost-Eskalation samt hohen Ölpreisen (Inflations-/Margendruck) und eine schwache Technologie-Ecke (Infineon, SAP). Im Jahresverlauf bleibt der Index mit +4,2 % im Plus, doch Trading Economics sieht die Projektion mittelfristig tiefer (~24.460 zum Quartalsende). Kurzfristig <b>neutral bis leicht bärisch</b> – Richtung hängt an Öl, Wall-Street-Vorgaben und der EZB-Sitzung nächste Woche.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "25.800", "note": "orientierende Marke (gerundet)"},
+    {"type": "res", "name": "Resistance 2", "value": "25.500", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "25.200", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "25.000", "note": "runde Marke / Bull-Bear-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "24.860", "note": "jüngstes Wochentief"},
+    {"type": "sup", "name": "Support 2", "value": "24.500", "note": "TE-Projektion Quartalsende"},
+    {"type": "sup", "name": "Support 3", "value": "24.200", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">seitwärts / leicht abwärts</b> · Momentum: nachlassend · Level sind gerundete Orientierungsmarken (Näherungswerte).",
+  "drivers": [
+    {"title": "Nahost & Öl", "text": "Erneute US-Aktionen gegen Iran und hohe Ölpreise belasten Sentiment und Margen exportstarker Werte – Hauptgegenwind."},
+    {"title": "Tech-Schwäche", "text": "Infineon (−~3 %) und SAP (−~1,7 %) drücken; die Chip-/Software-Ecke folgt der globalen Tech-Nervosität."},
+    {"title": "Einzelwerte", "text": "Auch Rheinmetall (−2,4 %) und Zalando (−3,1 %) unter Druck – breite, nicht sektorspezifische Schwäche."},
+    {"title": "Geldpolitik / EZB", "text": "EZB-Sitzung nächste Woche: Balanceakt zwischen sinkender Inflation und Stagflationssorgen durch teure Energie."},
+    {"title": "Prognose", "text": "Trading Economics projiziert mittelfristig tiefere Stände (~24.460 Quartalsende, ~22.485 auf 12 Monate) – vorsichtiger Grundton."}
+  ],
+  "bull": "Beruhigt sich die Öl-/Nahost-Lage und liefern die US-Indizes positive Vorgaben, ist eine Rückkehr über <b>25.200</b> Richtung <b>25.500/25.800</b> drin. Die Chip-Ecke müsste dafür drehen.",
+  "bear": "Bruch unter <b>24.860</b> öffnet <b>24.500</b> (TE-Projektion) und darunter <b>24.200</b>. Anhaltend hohe Ölpreise plus schwache Tech sind das bärische Kernszenario."
+}

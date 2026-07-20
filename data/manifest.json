@@ -1,20 +1,100 @@
 {
-  "built": "20.07.2026 08:35 UTC",
+  "built": "20.07.2026 08:43 UTC",
+  "categories": {
+    "rohstoffe": {
+      "name": "Rohstoffe",
+      "instruments": [
+        "wti",
+        "gold",
+        "silber"
+      ]
+    },
+    "index": {
+      "name": "Index",
+      "instruments": [
+        "dax",
+        "nas100"
+      ]
+    },
+    "aktien": {
+      "name": "Aktien",
+      "instruments": [
+        "aapl",
+        "msft"
+      ]
+    },
+    "waehrungen": {
+      "name": "Währungen",
+      "instruments": [
+        "eurusd",
+        "euraud"
+      ]
+    },
+    "etf": {
+      "name": "ETFs",
+      "instruments": []
+    }
+  },
   "instruments": {
     "wti": {
       "name": "WTI Crude Oil",
+      "category": "rohstoffe",
       "pages": [
         "2026-07-20"
       ]
     },
     "gold": {
       "name": "Gold",
+      "category": "rohstoffe",
       "pages": [
         "2026-07-20"
       ]
     },
     "silber": {
       "name": "Silber",
+      "category": "rohstoffe",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "dax": {
+      "name": "DAX",
+      "category": "index",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "nas100": {
+      "name": "Nasdaq 100",
+      "category": "index",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "aapl": {
+      "name": "Apple",
+      "category": "aktien",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "msft": {
+      "name": "Microsoft",
+      "category": "aktien",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "eurusd": {
+      "name": "EUR/USD",
+      "category": "waehrungen",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "euraud": {
+      "name": "EUR/AUD",
+      "category": "waehrungen",
       "pages": [
         "2026-07-20"
       ]
