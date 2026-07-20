@@ -148,6 +148,7 @@ def render_tvchart(slug, uid):
         '<button data-int="15" data-rng="2D" class="active">15m · 48h</button>'
         '<button data-int="60" data-rng="1M">1h · 1 Monat</button>'
         '<button data-int="240" data-rng="4M">4h · 4 Monate</button>'
+        '<button data-int="D" data-rng="12M">1T · 1 Jahr</button>'
         '</div>'
         '<div class="tvchart">'
         '<button class="fs-btn" onclick="tvFull(this)" title="Vollbild">⛶ Vollbild</button>'
@@ -158,7 +159,7 @@ def render_tvchart(slug, uid):
         'else{document.exitFullscreen();}}</script>'
         '<script>' + js + '</script>'
         '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '). '
-        'Ein Klick wählt Kerze + Zeitraum zusammen: <b>15m→48h</b>, <b>1h→1 Monat</b>, <b>4h→4 Monate</b>. Standard ist 15m/48h; ⛶ für Vollbild. '
+        'Ein Klick wählt Kerze + Zeitraum zusammen: <b>15m→48h</b>, <b>1h→1 Monat</b>, <b>4h→4 Monate</b>, <b>1T→1 Jahr</b>. Standard ist 15m/48h; ⛶ für Vollbild. '
         'Zeiträume sind Richtwerte – im Chart frei zoom-/scrollbar. '
         'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs).</div>'
     )
