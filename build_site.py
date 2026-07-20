@@ -36,12 +36,12 @@ INSTRUMENTS = [
     ("euraud", "EUR/AUD",       "waehrungen"),
 ]
 
-# TradingView-Symbole je Instrument (Live-Chart).
+# TradingView-Symbole je Instrument (Live-Chart) – einheitlich Capital.com (CFD), frei einbettbar.
 TV_SYMBOL = {
-    "wti": "TVC:USOIL", "gold": "OANDA:XAUUSD", "silber": "OANDA:XAGUSD",
+    "wti": "CAPITALCOM:OIL_CRUDE", "gold": "CAPITALCOM:GOLD", "silber": "CAPITALCOM:SILVER",
     "dax": "CAPITALCOM:DE40", "nas100": "CAPITALCOM:US100",
-    "aapl": "NASDAQ:AAPL", "msft": "NASDAQ:MSFT",
-    "eurusd": "FX:EURUSD", "euraud": "OANDA:EURAUD",
+    "aapl": "CAPITALCOM:AAPL", "msft": "CAPITALCOM:MSFT",
+    "eurusd": "CAPITALCOM:EURUSD", "euraud": "CAPITALCOM:EURAUD",
 }
 
 BIAS_CLASS = {"bullish": "bullish", "bearish": "bearish", "neutral": "neutral"}
