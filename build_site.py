@@ -39,7 +39,7 @@ INSTRUMENTS = [
 # TradingView-Symbole je Instrument (Live-Chart).
 TV_SYMBOL = {
     "wti": "TVC:USOIL", "gold": "OANDA:XAUUSD", "silber": "OANDA:XAGUSD",
-    "dax": "XETR:DAX", "nas100": "NASDAQ:NDX",
+    "dax": "CAPITALCOM:DE40", "nas100": "CAPITALCOM:US100",
     "aapl": "NASDAQ:AAPL", "msft": "NASDAQ:MSFT",
     "eurusd": "FX:EURUSD", "euraud": "OANDA:EURAUD",
 }
@@ -124,9 +124,11 @@ DEFAULT_VIEWS = [
     ("4h · 4 Monate", "240", "4M"),
     ("1T · 1 Jahr", "D", "12M"),
 ]
-# Index-Werte: TradingView zeigt kleine Intraday-Kerzen nicht kostenlos -> nur 1h/1 Jahr.
+# Index-Werte (CFD-Symbole): 15m intraday oft gesperrt -> ab 1h aufwärts anbieten.
 INDEX_VIEWS = [
-    ("1h · 1 Jahr", "60", "12M"),
+    ("1h · 1 Monat", "60", "1M"),
+    ("4h · 4 Monate", "240", "4M"),
+    ("1T · 1 Jahr", "D", "12M"),
 ]
 
 def chart_views(slug):
