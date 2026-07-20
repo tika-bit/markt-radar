@@ -1,0 +1,56 @@
+:root{
+  --bg:#0b0f14; --panel:#131a22; --panel2:#182029; --line:#26313d;
+  --txt:#e6edf3; --muted:#8b98a5; --accent:#f5a623; --green:#2ecc71;
+  --red:#ff5b5b; --blue:#4aa3ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:20px;max-width:980px;margin:0 auto}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-size:1.55rem;font-weight:700;letter-spacing:.3px}
+h2{font-size:1.05rem;margin:26px 0 12px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:6px}
+.sub{color:var(--muted);font-size:.85rem;margin-top:4px}
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.topbar .nav a{margin-left:14px;font-size:.9rem}
+.header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:2px solid var(--line);padding-bottom:16px}
+.badge{display:inline-block;padding:6px 14px;border-radius:20px;font-weight:700;font-size:.9rem}
+.badge.bullish{background:rgba(46,204,113,.15);color:var(--green);border:1px solid var(--green)}
+.badge.bearish{background:rgba(255,91,91,.15);color:var(--red);border:1px solid var(--red)}
+.badge.neutral{background:rgba(74,163,255,.15);color:var(--blue);border:1px solid var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card .label{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.6px}
+.card .price{font-size:1.6rem;font-weight:700;margin-top:6px}
+.card .chg{font-size:.88rem;margin-top:2px;font-weight:600}
+.up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--blue)}
+.fazit{background:var(--panel2);border-left:4px solid var(--accent);border-radius:8px;padding:16px 18px;margin-top:18px}
+table{width:100%;border-collapse:collapse;margin-top:6px;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.6px}
+td.lvl{font-weight:700;font-variant-numeric:tabular-nums}
+.res{color:var(--red)} .sup{color:var(--green)} .piv{color:var(--blue)}
+ul.drv{list-style:none;margin-top:6px}
+ul.drv li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px 14px;margin-bottom:9px}
+ul.drv li b{color:var(--accent)}
+.scen{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.scen .box{border-radius:10px;padding:15px;border:1px solid var(--line)}
+.scen .bull{background:rgba(46,204,113,.07);border-color:rgba(46,204,113,.4)}
+.scen .bear{background:rgba(255,91,91,.07);border-color:rgba(255,91,91,.4)}
+.scen h3{font-size:.95rem;margin-bottom:8px}
+.scen .bull h3{color:var(--green)} .scen .bear h3{color:var(--red)}
+.scen p{font-size:.88rem}
+.disc{margin-top:26px;background:#0f141a;border:1px dashed var(--line);border-radius:10px;padding:14px 16px;font-size:.78rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin-right:6px;margin-bottom:4px}
+/* Landing / instrument tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:block;transition:border-color .15s}
+.tile:hover{border-color:var(--accent);text-decoration:none}
+.tile .t-name{font-size:1.15rem;font-weight:700;color:var(--txt)}
+.tile .t-sym{color:var(--muted);font-size:.78rem;margin-top:2px}
+.tile .t-price{font-size:1.7rem;font-weight:700;margin-top:12px;color:var(--txt)}
+.tile .t-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.archive{list-style:none;margin-top:6px}
+.archive li{border-bottom:1px solid var(--line);padding:10px 2px;display:flex;justify-content:space-between;align-items:center}
+.archive li .a-date{font-variant-numeric:tabular-nums;font-weight:600}
+.archive li .a-meta{color:var(--muted);font-size:.85rem}
+.footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}

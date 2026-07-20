@@ -1,0 +1,23 @@
+{
+  "built": "20.07.2026 08:09 UTC",
+  "instruments": {
+    "wti": {
+      "name": "WTI Crude Oil",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "gold": {
+      "name": "Gold",
+      "pages": [
+        "2026-07-20"
+      ]
+    },
+    "silber": {
+      "name": "Silber",
+      "pages": [
+        "2026-07-20"
+      ]
+    }
+  }
+}

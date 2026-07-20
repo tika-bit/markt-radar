@@ -1,0 +1,39 @@
+{
+  "instrument": "Silber",
+  "slug": "silber",
+  "symbol": "XAG/USD · Silber (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Freitagsschluss 17.07.2026",
+  "price": "~58,37 $",
+  "change_day": "seitwärts",
+  "change_dir": "flat",
+  "change_week": "Konsolidierung um 58 $",
+  "bias": "neutral",
+  "bias_label": "Neutral ◆",
+  "bias_note": "Konsolidierung · strukturelles Defizit stützt",
+  "cards": [
+    {"label": "Silber XAG/USD", "price": "~58,37 $", "chg": "Konsolidierung nahe 58 $", "dir": "flat"},
+    {"label": "50/200-Tage-EMA", "price": "59,37 / 64,20", "chg": "Preis unter beiden → Zwischentrend schwach", "dir": "down"},
+    {"label": "Angebot/Nachfrage", "price": "Defizit", "chg": "46,3 Mio. oz · 6. Jahr in Folge", "dir": "up"}
+  ],
+  "fazit": "Silber hält sich nahe 58 $ in einer Konsolidierungsphase. RSI bei 45 (neutral); der Preis notiert unter der 50-Tage-EMA (59,37 $) und der 200-Tage-EMA (64,20 $), was auf einen schwachen Zwischentrend deutet. Fundamental treffen ein weicherer US-CPI (3,5 % im Juni → schwächerer Dollar, stützend) und ein anhaltendes strukturelles Angebotsdefizit (Silver Institute: 46,3 Mio. oz, 6. Jahr in Folge; physische Investmentnachfrage +20 %) auf Fed-Unsicherheit und öl-getriebene Inflationsrisiken. Netto: kurzfristig <b>neutral</b> mit Range-Charakter, strukturell aufwärts gestützt.",
+  "levels": [
+    {"type": "res", "name": "Resistance 4", "value": "63,31", "note": "oberes Range-Ende / Richtung 200-EMA"},
+    {"type": "res", "name": "Resistance 3", "value": "61,86", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 2", "value": "60,40", "note": "runde 60er-Marke"},
+    {"type": "res", "name": "Resistance 1", "value": "59,11", "note": "unmittelbar · knapp unter 50-EMA (59,37)"},
+    {"type": "sup", "name": "Support 1", "value": "56,90", "note": "primäre Unterstützung"},
+    {"type": "sup", "name": "Support 2", "value": "55,72", "note": "Zwischenhalt"},
+    {"type": "sup", "name": "Support 3", "value": "54,48", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">neutral / konsolidierend</b> (unter 50- & 200-Tage-EMA) · Momentum: RSI ≈ 45, neutral · Range grob 56,90–59,11 $.",
+  "drivers": [
+    {"title": "US-Inflation / Dollar", "text": "CPI im Juni auf 3,5 % gesunken → schwächerer Dollar, stützt Edelmetalle. Weichere Inflation nährt Hoffnung auf niedrigere Zinsen (bullisch für Silber)."},
+    {"title": "Strukturelles Defizit", "text": "Silver Institute erwartet ein Angebotsdefizit von 46,3 Mio. oz – das 6. Defizitjahr in Folge; physische Investmentnachfrage +20 % erwartet. Fundamentale Stütze."},
+    {"title": "Fed-Politik", "text": "Gemischte Signale: weichere Inflation spricht für Zinssenkungen (bullisch), doch öl-getriebene Inflation könnte die Fed restriktiv halten (bärisch)."},
+    {"title": "Öl-Risiko", "text": "Ölpreise über 80 $ (Nahost) sind ein Inflationsrisiko, das die Fed länger restriktiv halten könnte – Gegenwind für Silber."},
+    {"title": "Industrienachfrage", "text": "Silber ist Doppel-Asset (Edelmetall + Industriemetall); Nachfrage aus Solar/Elektronik untermauert das Defizit-Narrativ mittelfristig."}
+  ],
+  "bull": "Bruch über <b>59,11 $</b> und die 50-EMA (59,37 $) öffnet <b>60,40 / 61,86 $</b>, Richtung 200-EMA (64,20 $). Treiber: fallende Realzinsen + Defizit-Nachfrage. Bestätigung: Tagesschluss über 59,40 $.",
+  "bear": "Verlust von <b>56,90 $</b> aktiviert <b>55,72 / 54,48 $</b>. Ein festerer Dollar bzw. eine restriktivere Fed (öl-Inflation) ist das bärische Kernszenario innerhalb der Konsolidierung."
+}

@@ -1,0 +1,39 @@
+{
+  "instrument": "WTI Crude Oil",
+  "slug": "wti",
+  "symbol": "US Oil / WTI (Pepperstone)",
+  "date": "2026-07-20",
+  "datastand": "Freitagsschluss 17.07.2026",
+  "price": "~82,50 $",
+  "change_day": "+3,54 $ (+4,5 %)",
+  "change_dir": "up",
+  "change_week": "+16 %",
+  "bias": "bullish",
+  "bias_label": "Bullish ▲",
+  "bias_note": "geopolitisch getrieben · Backwardation",
+  "cards": [
+    {"label": "WTI / US Oil", "price": "~82,50 $", "chg": "+3,54 $ (+4,5 %) Tag · +16 % Woche", "dir": "up"},
+    {"label": "Brent Crude", "price": "~88 $", "chg": "Wochenhoch · Spread WTI ≈ 5,5 $", "dir": "up"},
+    {"label": "Kurvenstruktur", "price": "Backwardation", "chg": "Prompt-Prämie · Cushing < 20 Mio. Bbl", "dir": "up"}
+  ],
+  "fazit": "WTI schließt die Woche mit +16 % über 82 $ – höchster Stand seit rund einem Monat. Treiber ist fast ausschließlich die eskalierende Nahost-Risikoprämie (kollabierter US-Iran-Waffenstillstand, Sorge um die Straße von Hormuz, ~20 % des globalen Öltransports). Technisch klar bullisch über der 50-Tage-EMA, RSI ~57 (noch nicht überkauft). Gegengewicht: OPEC+-Angebotsausweitung (+188 kb/d im August) und gesenkte Nachfrageprognosen von OPEC/IEA. Tages-Bias bullisch, solange 78,40 $ hält – aber headline-getrieben und dadurch anfällig für scharfe Rücksetzer.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "93,67", "note": "Ausbruchsziel bei anhaltender Eskalation"},
+    {"type": "res", "name": "Resistance 2", "value": "88,06", "note": "Zwischenwiderstand / Brent-Angleichung"},
+    {"type": "res", "name": "Resistance 1", "value": "81,80 – 83,50", "note": "Aktive Breakout-Zone (Preis handelt hier)"},
+    {"type": "piv", "name": "Pivot", "value": "≈ 80,50", "note": "Tages-Drehpunkt / Bull-Bear-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "78,42", "note": "Erster Halt · Bruch kippt Kurzfrist-Bias"},
+    {"type": "sup", "name": "Support 2", "value": "77,25", "note": "100-Tage-EMA (dynamisch)"},
+    {"type": "sup", "name": "Support 3", "value": "73,37", "note": "Übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--green)\">bullisch</b> (über 50-Tage-EMA) · Momentum: RSI ≈ 57, steigend · Volatilität: erhöht, headline-getrieben – weite Tagesspannen wahrscheinlich.",
+  "drivers": [
+    {"title": "Geopolitik (Nahost / Hormuz)", "text": "US-Iran-Waffenstillstand kollabiert; Berichte über Angriffe und mögliche Störung der Rotmeer-/Hormuz-Route. ~20 % der globalen Öllieferungen passieren Hormuz → akute Angebots-Verwundbarkeit, Hauptpreistreiber."},
+    {"title": "EIA-Lagerbestände", "text": "Rohöl-Vorräte −1,7 Mio. Bbl; Raffinerie-Auslastung 96,2 % (Sommer-Peak); Cushing unter 20 Mio. Bbl (physisch eng) – stützt Backwardation. Destillate +4,6 Mio. Bbl (leichter Gegenwind)."},
+    {"title": "OPEC+", "text": "Weitere +188 kb/d für August genehmigt. Effekt begrenzt, solange Exportlogistik durch Schifffahrtsrisiken eingeschränkt bleibt."},
+    {"title": "Angebot/Nachfrage", "text": "OPEC und IEA senken die Nachfragewachstums-Prognosen 2026 (schwächere Konjunktur) – strukturelles Gegengewicht zur aktuellen Angst-Rally."},
+    {"title": "Kurvenstruktur", "text": "Backwardation – prompte Kontrakte teurer als spätere; signalisiert enge physische Versorgung und Risikoprämie am Frontmonat."}
+  ],
+  "bull": "Anhaltende Eskalations-Headlines und ein Halt über der 81,80–83,50-Zone öffnen den Weg Richtung <b>88 $</b> und bei weiterer Zuspitzung <b>93,67 $</b>. Enge Vorräte (Cushing) und Backwardation stützen. Bestätigung: Tagesschluss > 83,50 $.",
+  "bear": "Deeskalations-Signale oder Gewinnmitnahmen kippen die Risikoprämie. Bruch unter <b>78,42 $</b> aktiviert die 100-Tage-EMA bei <b>77,25 $</b>, darunter Ziel <b>73,37 $</b>. OPEC+-Angebot und schwache Nachfrage liefern das fundamentale Argument."
+}
