@@ -209,6 +209,62 @@ def render_levelmap(d):
             '<span style="color:#2ecc71">Support</span> · '
             '<span style="color:#f5a623">aktueller Preis</span> · Näherungswerte.</div>')
 
+def _levels_by_type(d, t):
+    out = []
+    for l in d.get("levels", []):
+        if l.get("type") == t:
+            v = parse_num(l.get("value", ""))
+            if v is not None:
+                out.append((v, l.get("value")))
+    return out
+
+def render_deep(d):
+    # 1) Ausführliche Analyse (aufklappbar)
+    if d.get("detail"):
+        body = d["detail"]
+    else:
+        ps = ['<p>%s</p>' % d.get("fazit", "")]
+        ps += ['<p><b>%s:</b> %s</p>' % (x["title"], x["text"]) for x in d.get("drivers", [])]
+        ps.append('<p><b>Charttechnik:</b> %s</p>' % d.get("trend_note", ""))
+        ps.append('<p><b>Aufwärts-Szenario:</b> %s</p>' % d.get("bull", ""))
+        ps.append('<p><b>Abwärts-Szenario:</b> %s</p>' % d.get("bear", ""))
+        body = "".join(ps)
+    deep = ('<details class="deep"><summary>Ausführliche Analyse aufklappen</summary>'
+            '<div class="deep-body">%s</div></details>' % body)
+
+    # 2) Einstiegs-Szenarien (automatisch aus Leveln + Bias)
+    res = sorted(_levels_by_type(d, "res"))            # aufsteigend – nächster Widerstand zuerst
+    sup = sorted(_levels_by_type(d, "sup"), reverse=True)  # absteigend – nächste Unterstützung zuerst
+    piv = _levels_by_type(d, "piv")
+    piv_raw = piv[0][1] if piv else str(d.get("price", ""))
+    boxes = []
+    if len(res) >= 2:
+        r = [x[1] for x in res]
+        ziele = " → ".join(r[1:3]) if len(r) >= 3 else r[1]
+        boxes.append('<div class="setup long"><h4>▲ Long-Szenario (Aufwärts)</h4>'
+                     '<p><b>Auslöser:</b> bestätigter Ausbruch/Halt über <b>%s</b>.</p>'
+                     '<p><b>Mögliche Ziele:</b> %s.</p>'
+                     '<p><b>Invalidierung:</b> Rückfall unter <b>%s</b> – Idee hinfällig.</p></div>'
+                     % (r[0], ziele, piv_raw))
+    if len(sup) >= 2:
+        s = [x[1] for x in sup]
+        ziele = " → ".join(s[1:3]) if len(s) >= 3 else s[1]
+        boxes.append('<div class="setup short"><h4>▼ Short-Szenario (Abwärts)</h4>'
+                     '<p><b>Auslöser:</b> bestätigter Bruch unter <b>%s</b>.</p>'
+                     '<p><b>Mögliche Ziele:</b> %s.</p>'
+                     '<p><b>Invalidierung:</b> Rückeroberung von <b>%s</b>.</p></div>'
+                     % (s[0], ziele, piv_raw))
+    biasmap = {"bullish": "das Long-Szenario", "bearish": "das Short-Szenario", "neutral": "beide Szenarien etwa gleichrangig"}
+    lean = ('<p class="sub" style="margin-top:8px">Aktueller Bias (%s): tendenziell begünstigt ist <b>%s</b>. '
+            'Das Gegenszenario dient als Plan B / Absicherung.</p>' % (d.get("bias_label", "–"), biasmap.get(d.get("bias", "neutral"), "beide")))
+    setups = ('<details class="deep"><summary>Mögliche Einstiegs-Szenarien – „wann könnte man kaufen?" aufklappen</summary>'
+              '<div class="deep-body">'
+              '<p class="warn">Hypothetische, rein <b>edukative</b> Szenarien auf Basis der Level oben – '
+              '<b>keine Kauf-/Verkaufsempfehlung und keine Anlageberatung</b>. „Bestätigt" meint z. B. einen '
+              'Schlusskurs jenseits des Levels. Preise sind zeitverzögerte Näherungswerte; nutze immer eigenes Risikomanagement.</p>'
+              '<div class="setups">' + "".join(boxes) + '</div>' + lean + '</div></details>')
+    return deep + setups
+
 def render_analysis(d):
     cards = "".join(
         '<div class="card"><div class="label">%s</div><div class="price">%s</div><div class="chg %s">%s</div></div>'
@@ -242,6 +298,7 @@ def render_analysis(d):
     h.append('<div class="box bull"><h3>▲ Bull-Szenario</h3><p>%s</p></div>' % d["bull"])
     h.append('<div class="box bear"><h3>▼ Bär-Szenario</h3><p>%s</p></div>' % d["bear"])
     h.append('</div>')
+    h.append(render_deep(d))
     h.append(DISCLAIMER % d["datastand"])
     return "\n".join(h)
 
