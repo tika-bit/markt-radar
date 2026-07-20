@@ -117,31 +117,55 @@ Gehebelte Produkte (z. B. CFDs) bergen ein hohes Verlustrisiko bis zum Totalverl
 Prüfe stets die <b>aktuellen Live-Kurse bei deinem Broker</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
 </div>"""
 
-def render_tvchart(slug, levels=None):
+def render_tvchart(slug, uid):
     sym = TV_SYMBOL.get(slug)
     if not sym:
         return ""
-    cfg = ('{"autosize":true,"symbol":"' + sym + '","interval":"15","timezone":"Europe/Berlin",'
-           '"theme":"dark","style":"1","locale":"de","hide_top_toolbar":false,'
-           '"hide_legend":false,"allow_symbol_change":false,"save_image":false,'
-           '"withdateranges":true,"details":false,"backgroundColor":"rgba(19,26,34,1)"}')
+    wrap = "wrap_" + uid
+    cont = "tvw_" + uid
+    js = (
+        "(function(){"
+        "var sym=\"" + sym + "\";var st={interval:\"15\",range:\"2D\"};"
+        "var wrap=document.getElementById(\"" + wrap + "\");"
+        "function build(){var c=document.getElementById(\"" + cont + "\");if(!c)return;c.innerHTML=\"\";"
+        "new TradingView.widget({container_id:\"" + cont + "\",symbol:sym,interval:st.interval,range:st.range,"
+        "timezone:\"Europe/Berlin\",theme:\"dark\",style:\"1\",locale:\"de\",autosize:true,"
+        "hide_top_toolbar:false,hide_legend:false,allow_symbol_change:false,save_image:false,"
+        "backgroundColor:\"rgba(19,26,34,1)\"});}"
+        "function wire(attr,key){wrap.querySelectorAll(\"button[\"+attr+\"]\").forEach(function(b){b.onclick=function(){"
+        "st[key]=b.getAttribute(attr);wrap.querySelectorAll(\"button[\"+attr+\"]\").forEach(function(x){x.classList.remove(\"active\");});"
+        "b.classList.add(\"active\");build();};});}"
+        "wire(\"data-int\",\"interval\");wire(\"data-rng\",\"range\");"
+        "if(window.TradingView&&window.TradingView.widget){build();}"
+        "else{var s=document.createElement(\"script\");s.src=\"https://s3.tradingview.com/tv.js\";s.onload=build;document.head.appendChild(s);}"
+        "})();"
+    )
     html = (
-        '<h2>Live-Chart · 15-Min-Kerzen</h2>'
+        '<h2>Live-Chart</h2>'
+        '<div id="' + wrap + '">'
+        '<div class="chart-toolbar">'
+        '<span class="ct-label">Kerzen:</span>'
+        '<button data-int="15" class="active">15m</button>'
+        '<button data-int="60">1h</button>'
+        '<button data-int="240">4h</button>'
+        '<span class="ct-sep"></span>'
+        '<span class="ct-label">Zeitraum:</span>'
+        '<button data-rng="2D" class="active">48h</button>'
+        '<button data-rng="2W">2 Wochen</button>'
+        '<button data-rng="1M">4 Wochen</button>'
+        '</div>'
         '<div class="tvchart">'
         '<button class="fs-btn" onclick="tvFull(this)" title="Vollbild">⛶ Vollbild</button>'
-        '<div class="tradingview-widget-container" style="height:100%;width:100%">'
-        '<div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>'
-        '<script type="text/javascript" '
-        'src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>'
-        + cfg +
-        '</script></div></div>'
+        '<div id="' + cont + '" style="height:100%;width:100%"></div>'
+        '</div></div>'
         '<script>function tvFull(b){var c=b.closest(".tvchart");'
         'if(!document.fullscreenElement){(c.requestFullscreen||c.webkitRequestFullscreen||function(){}).call(c);}'
         'else{document.exitFullscreen();}}</script>'
-        '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '), 15-Minuten-Kerzen · '
-        'Button ⛶ oben rechts für Vollbild. Im Vollbild lassen sich mit den Chart-Werkzeugen eigene Linien ziehen. '
-        'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs). '
-        'Support/Resistance siehe Level-Tabelle darunter.</div>'
+        '<script>' + js + '</script>'
+        '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '). '
+        'Standard: 15-Min-Kerzen, ~48 h. Umschalten auf 1h/4h und 2/4 Wochen über die Buttons; ⛶ für Vollbild. '
+        'Zeiträume sind Richtwerte – im Chart frei zoom-/scrollbar; im Vollbild eigene Linien möglich. '
+        'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs).</div>'
     )
     return html
 
@@ -213,7 +237,7 @@ def render_analysis(d):
     h.append('</div></div>')
     h.append('<div class="cards">%s</div>' % cards)
     h.append('<div class="fazit"><b>Kurz-Fazit:</b> %s</div>' % d["fazit"])
-    h.append(render_tvchart(d.get("slug", "")))
+    h.append(render_tvchart(d.get("slug", ""), (d.get("slug", "") + "_" + d.get("date", "")).replace("-", "")))
     h.append('<h2>Technische Level</h2>')
     h.append('<table><thead><tr><th>Typ</th><th>Level (≈)</th><th>Bedeutung</th></tr></thead><tbody>%s</tbody></table>' % rows)
     h.append('<div class="sub" style="margin-top:8px">%s</div>' % d["trend_note"])

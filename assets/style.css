@@ -56,6 +56,12 @@ ul.drv li b{color:var(--accent)}
 .tvchart{position:relative;height:480px;width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px;background:var(--panel)}
 .fs-btn{position:absolute;top:10px;right:10px;z-index:6;background:rgba(11,15,20,.82);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:5px 11px;font-size:.8rem;cursor:pointer}
 .fs-btn:hover{border-color:var(--accent);color:var(--accent)}
+.chart-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
+.chart-toolbar .ct-label{color:var(--muted);font-size:.8rem;margin-right:2px}
+.chart-toolbar .ct-sep{width:1px;height:18px;background:var(--line);margin:0 6px}
+.chart-toolbar button{background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:.82rem;cursor:pointer}
+.chart-toolbar button:hover{border-color:var(--accent);color:var(--txt)}
+.chart-toolbar button.active{background:rgba(245,166,35,.15);color:var(--accent);border-color:var(--accent)}
 .tvchart:fullscreen{height:100vh;width:100vw;border:0;border-radius:0;margin:0}
 .tvchart:-webkit-full-screen{height:100vh;width:100vw}
 .footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}
