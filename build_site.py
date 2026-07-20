@@ -110,30 +110,40 @@ Zuletzt gebaut: %s
 </div></body></html>"""
 
 DISCLAIMER = """<div class="disc">
-<span class="tag">Keine Anlageberatung</span><span class="tag">CFDs sind gehebelt</span><span class="tag">Live-Kurse prüfen</span><br>
+<span class="tag">Keine Anlageberatung</span><span class="tag">Zeitverzögerte Daten</span><span class="tag">Gehebelte Produkte riskant</span><br>
 Diese Analyse dient ausschließlich Informations- und Bildungszwecken und stellt <b>keine Anlage-, Finanz- oder Handelsberatung</b> dar.
-Alle Preise und Level sind <b>Näherungswerte</b> auf Basis öffentlich recherchierter Quellen (%s) und können vom aktuellen Marktpreis abweichen.
-CFDs sind gehebelte Produkte mit hohem Verlustrisiko – ein Totalverlust des eingesetzten Kapitals ist möglich.
-Prüfe stets die <b>Live-Kurse und Kontraktspezifikationen in deiner Pepperstone-Plattform</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
+Alle Preise und Level sind <b>Näherungswerte</b> und <b>zeitverzögert</b> (nicht in Echtzeit) – sie basieren auf dem letzten verfügbaren Schlusskurs (%s) und können deutlich vom aktuellen Marktpreis abweichen.
+Gehebelte Produkte (z. B. CFDs) bergen ein hohes Verlustrisiko bis zum Totalverlust des eingesetzten Kapitals.
+Prüfe stets die <b>aktuellen Live-Kurse bei deinem Broker</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
 </div>"""
 
-def render_tvchart(slug):
+def render_tvchart(slug, levels=None):
     sym = TV_SYMBOL.get(slug)
     if not sym:
         return ""
-    cfg = ('{"autosize":true,"symbol":"%s","interval":"D","timezone":"Europe/Berlin",'
+    cfg = ('{"autosize":true,"symbol":"' + sym + '","interval":"15","timezone":"Europe/Berlin",'
            '"theme":"dark","style":"1","locale":"de","hide_top_toolbar":false,'
            '"hide_legend":false,"allow_symbol_change":false,"save_image":false,'
-           '"backgroundColor":"rgba(19,26,34,1)"}' % sym)
-    return ('<h2>Live-Chart</h2>'
-            '<div class="tvchart">'
-            '<div class="tradingview-widget-container" style="height:100%%;width:100%%">'
-            '<div class="tradingview-widget-container__widget" style="height:100%%;width:100%%"></div>'
-            '<script type="text/javascript" '
-            'src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>'
-            '%s</script></div></div>'
-            '<div class="sub" style="margin-top:6px">Live-Kurs via TradingView (%s) – kann minimal von Pepperstone abweichen.</div>'
-            % (cfg, sym))
+           '"withdateranges":true,"details":false,"backgroundColor":"rgba(19,26,34,1)"}')
+    html = (
+        '<h2>Live-Chart · 15-Min-Kerzen</h2>'
+        '<div class="tvchart">'
+        '<button class="fs-btn" onclick="tvFull(this)" title="Vollbild">⛶ Vollbild</button>'
+        '<div class="tradingview-widget-container" style="height:100%;width:100%">'
+        '<div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>'
+        '<script type="text/javascript" '
+        'src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>'
+        + cfg +
+        '</script></div></div>'
+        '<script>function tvFull(b){var c=b.closest(".tvchart");'
+        'if(!document.fullscreenElement){(c.requestFullscreen||c.webkitRequestFullscreen||function(){}).call(c);}'
+        'else{document.exitFullscreen();}}</script>'
+        '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '), 15-Minuten-Kerzen · '
+        'Button ⛶ oben rechts für Vollbild. Im Vollbild lassen sich mit den Chart-Werkzeugen eigene Linien ziehen. '
+        'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs). '
+        'Support/Resistance siehe Level-Tabelle darunter.</div>'
+    )
+    return html
 
 def render_levelmap(d):
     pts = []
@@ -196,7 +206,7 @@ def render_analysis(d):
     h.append('<div class="header"><div>')
     h.append('<h1>%s – Tagesanalyse</h1>' % d["instrument"])
     h.append('<div class="sub">Instrument: %s · Handelstag %s</div>' % (d["symbol"], de_date(d["date"])))
-    h.append('<div class="sub">Datenstand: %s · alle Preise Näherungswerte</div>' % d["datastand"])
+    h.append('<div class="sub">Datenstand: %s · Näherungswerte, <b>zeitverzögert</b> (keine Echtzeit)</div>' % d["datastand"])
     h.append('</div><div style="text-align:right">')
     h.append('<span class="badge %s">BIAS: %s</span>' % (bias_cls, d["bias_label"].upper()))
     h.append('<div class="sub" style="margin-top:8px">%s</div>' % d["bias_note"])
@@ -207,7 +217,6 @@ def render_analysis(d):
     h.append('<h2>Technische Level</h2>')
     h.append('<table><thead><tr><th>Typ</th><th>Level (≈)</th><th>Bedeutung</th></tr></thead><tbody>%s</tbody></table>' % rows)
     h.append('<div class="sub" style="margin-top:8px">%s</div>' % d["trend_note"])
-    h.append(render_levelmap(d))
     h.append('<h2>Fundamentale Treiber</h2><ul class="drv">%s</ul>' % drivers)
     h.append('<h2>Szenarien für den Tag</h2><div class="scen">')
     h.append('<div class="box bull"><h3>▲ Bull-Szenario</h3><p>%s</p></div>' % d["bull"])
@@ -264,6 +273,14 @@ def main():
     root += '<div class="header"><div><h1>markt-radar</h1>'
     root += '<div class="sub">Tägliche Markt-Analysen – kombiniert technisch + fundamental. Kategorien: '
     root += " · ".join(n for _, n in CATEGORIES) + '.</div></div></div>'
+    root += ('<div class="disc" style="margin-top:16px">'
+             '<span class="tag">Keine Anlageberatung</span><span class="tag">Zeitverzögerte Daten</span>'
+             '<span class="tag">Gehebelte Produkte riskant</span><br>'
+             'Alle Inhalte dienen ausschließlich Informations- und Bildungszwecken und sind <b>keine Anlage-, '
+             'Finanz- oder Handelsberatung</b>. Preise und Level sind <b>Näherungswerte</b> und <b>zeitverzögert</b> '
+             '(nicht in Echtzeit), basierend auf dem letzten verfügbaren Schlusskurs. Gehebelte Produkte (z. B. CFDs) '
+             'bergen ein hohes Verlustrisiko bis zum Totalverlust. Prüfe stets die aktuellen Live-Kurse bei deinem Broker. '
+             'Eigene Verantwortung, eigenes Risikomanagement.</div>')
 
     for cslug, cname in CATEGORIES:
         slugs = [s for s, n, c in INSTRUMENTS if c == cslug]

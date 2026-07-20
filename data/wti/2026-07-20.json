@@ -1,7 +1,7 @@
 {
   "instrument": "WTI Crude Oil",
   "slug": "wti",
-  "symbol": "US Oil / WTI (Pepperstone)",
+  "symbol": "US Oil / WTI",
   "date": "2026-07-20",
   "datastand": "Freitagsschluss 17.07.2026",
   "price": "~82,50 $",
