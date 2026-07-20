@@ -117,15 +117,37 @@ Gehebelte Produkte (z. B. CFDs) bergen ein hohes Verlustrisiko bis zum Totalverl
 Prüfe stets die <b>aktuellen Live-Kurse bei deinem Broker</b>, bevor du handelst. Eigene Verantwortung, eigenes Risikomanagement.
 </div>"""
 
+# Chart-Ansichten: (Label, interval, range). Erste = Standard.
+DEFAULT_VIEWS = [
+    ("15m · 48h", "15", "2D"),
+    ("1h · 1 Monat", "60", "1M"),
+    ("4h · 4 Monate", "240", "4M"),
+    ("1T · 1 Jahr", "D", "12M"),
+]
+# Index-Werte: TradingView zeigt kleine Intraday-Kerzen nicht kostenlos -> nur 1h/1 Jahr.
+INDEX_VIEWS = [
+    ("1h · 1 Jahr", "60", "12M"),
+]
+
+def chart_views(slug):
+    return INDEX_VIEWS if cat_of(slug) == "index" else DEFAULT_VIEWS
+
 def render_tvchart(slug, uid):
     sym = TV_SYMBOL.get(slug)
     if not sym:
         return ""
     wrap = "wrap_" + uid
     cont = "tvw_" + uid
+    views = chart_views(slug)
+    init_int, init_rng = views[0][1], views[0][2]
+    btns = "".join(
+        '<button data-int="%s" data-rng="%s"%s>%s</button>' % (iv, rg, ' class="active"' if i == 0 else '', lbl)
+        for i, (lbl, iv, rg) in enumerate(views)
+    )
+    views_txt = " · ".join("<b>%s</b>" % lbl for lbl, _, _ in views)
     js = (
         "(function(){"
-        "var sym=\"" + sym + "\";var st={interval:\"15\",range:\"2D\"};"
+        "var sym=\"" + sym + "\";var st={interval:\"" + init_int + "\",range:\"" + init_rng + "\"};"
         "var wrap=document.getElementById(\"" + wrap + "\");"
         "function build(){var c=document.getElementById(\"" + cont + "\");if(!c)return;c.innerHTML=\"\";"
         "new TradingView.widget({container_id:\"" + cont + "\",symbol:sym,interval:st.interval,range:st.range,"
@@ -140,15 +162,14 @@ def render_tvchart(slug, uid):
         "else{var s=document.createElement(\"script\");s.src=\"https://s3.tradingview.com/tv.js\";s.onload=build;document.head.appendChild(s);}"
         "})();"
     )
+    idx_hint = ('' if cat_of(slug) != "index" else
+                ' <span style="color:var(--muted)">(Index: kleinere Intraday-Kerzen sind bei TradingView nicht kostenlos)</span>')
     html = (
         '<h2>Live-Chart</h2>'
         '<div id="' + wrap + '">'
         '<div class="chart-toolbar">'
         '<span class="ct-label">Ansicht:</span>'
-        '<button data-int="15" data-rng="2D" class="active">15m · 48h</button>'
-        '<button data-int="60" data-rng="1M">1h · 1 Monat</button>'
-        '<button data-int="240" data-rng="4M">4h · 4 Monate</button>'
-        '<button data-int="D" data-rng="12M">1T · 1 Jahr</button>'
+        + btns +
         '</div>'
         '<div class="tvchart">'
         '<button class="fs-btn" onclick="tvFull(this)" title="Vollbild">⛶ Vollbild</button>'
@@ -159,7 +180,7 @@ def render_tvchart(slug, uid):
         'else{document.exitFullscreen();}}</script>'
         '<script>' + js + '</script>'
         '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '). '
-        'Ein Klick wählt Kerze + Zeitraum zusammen: <b>15m→48h</b>, <b>1h→1 Monat</b>, <b>4h→4 Monate</b>, <b>1T→1 Jahr</b>. Standard ist 15m/48h; ⛶ für Vollbild. '
+        'Ansicht(en): ' + views_txt + idx_hint + '. ⛶ für Vollbild. '
         'Zeiträume sind Richtwerte – im Chart frei zoom-/scrollbar. '
         'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs).</div>'
     )
