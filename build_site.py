@@ -132,10 +132,10 @@ def render_tvchart(slug, uid):
         "timezone:\"Europe/Berlin\",theme:\"dark\",style:\"1\",locale:\"de\",autosize:true,"
         "hide_top_toolbar:false,hide_legend:false,allow_symbol_change:false,save_image:false,"
         "backgroundColor:\"rgba(19,26,34,1)\"});}"
-        "function wire(attr,key){wrap.querySelectorAll(\"button[\"+attr+\"]\").forEach(function(b){b.onclick=function(){"
-        "st[key]=b.getAttribute(attr);wrap.querySelectorAll(\"button[\"+attr+\"]\").forEach(function(x){x.classList.remove(\"active\");});"
-        "b.classList.add(\"active\");build();};});}"
-        "wire(\"data-int\",\"interval\");wire(\"data-rng\",\"range\");"
+        "wrap.querySelectorAll(\"button[data-int]\").forEach(function(b){b.onclick=function(){"
+        "st.interval=b.getAttribute(\"data-int\");st.range=b.getAttribute(\"data-rng\");"
+        "wrap.querySelectorAll(\"button[data-int]\").forEach(function(x){x.classList.remove(\"active\");});"
+        "b.classList.add(\"active\");build();};});"
         "if(window.TradingView&&window.TradingView.widget){build();}"
         "else{var s=document.createElement(\"script\");s.src=\"https://s3.tradingview.com/tv.js\";s.onload=build;document.head.appendChild(s);}"
         "})();"
@@ -144,15 +144,10 @@ def render_tvchart(slug, uid):
         '<h2>Live-Chart</h2>'
         '<div id="' + wrap + '">'
         '<div class="chart-toolbar">'
-        '<span class="ct-label">Kerzen:</span>'
-        '<button data-int="15" class="active">15m</button>'
-        '<button data-int="60">1h</button>'
-        '<button data-int="240">4h</button>'
-        '<span class="ct-sep"></span>'
-        '<span class="ct-label">Zeitraum:</span>'
-        '<button data-rng="2D" class="active">48h</button>'
-        '<button data-rng="2W">2 Wochen</button>'
-        '<button data-rng="1M">4 Wochen</button>'
+        '<span class="ct-label">Ansicht:</span>'
+        '<button data-int="15" data-rng="2D" class="active">15m · 48h</button>'
+        '<button data-int="60" data-rng="1M">1h · 1 Monat</button>'
+        '<button data-int="240" data-rng="4M">4h · 4 Monate</button>'
         '</div>'
         '<div class="tvchart">'
         '<button class="fs-btn" onclick="tvFull(this)" title="Vollbild">⛶ Vollbild</button>'
@@ -163,8 +158,8 @@ def render_tvchart(slug, uid):
         'else{document.exitFullscreen();}}</script>'
         '<script>' + js + '</script>'
         '<div class="sub" style="margin-top:6px">Live-Chart via TradingView (' + sym + '). '
-        'Standard: 15-Min-Kerzen, ~48 h. Umschalten auf 1h/4h und 2/4 Wochen über die Buttons; ⛶ für Vollbild. '
-        'Zeiträume sind Richtwerte – im Chart frei zoom-/scrollbar; im Vollbild eigene Linien möglich. '
+        'Ein Klick wählt Kerze + Zeitraum zusammen: <b>15m→48h</b>, <b>1h→1 Monat</b>, <b>4h→4 Monate</b>. Standard ist 15m/48h; ⛶ für Vollbild. '
+        'Zeiträume sind Richtwerte – im Chart frei zoom-/scrollbar. '
         'Die Analyse-Werte in Karten/Tabelle sind dagegen <b>zeitverzögert</b> (letzter Schlusskurs).</div>'
     )
     return html
