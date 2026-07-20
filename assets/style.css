@@ -53,4 +53,7 @@ ul.drv li b{color:var(--accent)}
 .archive li{border-bottom:1px solid var(--line);padding:10px 2px;display:flex;justify-content:space-between;align-items:center}
 .archive li .a-date{font-variant-numeric:tabular-nums;font-weight:600}
 .archive li .a-meta{color:var(--muted);font-size:.85rem}
+.tvchart{height:420px;width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px;background:var(--panel)}
+.levelmap{margin-top:8px}
+.levelmap svg{display:block;max-width:100%}
 .footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}

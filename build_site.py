@@ -23,6 +23,98 @@ INSTRUMENTS = [
 BIAS_CLASS = {"bullish": "bullish", "bearish": "bearish", "neutral": "neutral"}
 DIR_CLASS  = {"up": "up", "down": "down", "flat": "flat"}
 
+# TradingView-Symbole je Instrument (Live-Chart). Neue Instrumente hier ergaenzen.
+TV_SYMBOL = {
+    "wti":    "TVC:USOIL",
+    "gold":   "OANDA:XAUUSD",
+    "silber": "OANDA:XAGUSD",
+}
+
+import re as _re
+def parse_num(s):
+    """Extrahiert einen Zahlenwert aus deutschen Preis-Strings ('~82,50 $', '4.170', '81,80 – 83,50')."""
+    if not isinstance(s, str):
+        return None
+    t = s
+    for ch in ["~", "≈", "$", "%", "−"]:
+        t = t.replace(ch, " ")
+    parts = _re.split(r"[–]", t)
+    vals = []
+    for p in parts:
+        p2 = p.strip().replace(".", "").replace(",", ".")
+        m = _re.search(r"-?\d+(?:\.\d+)?", p2)
+        if m:
+            try:
+                vals.append(float(m.group()))
+            except ValueError:
+                pass
+    if not vals:
+        return None
+    return sum(vals) / len(vals)
+
+def render_tvchart(slug, uid):
+    sym = TV_SYMBOL.get(slug)
+    if not sym:
+        return ""
+    cfg = ('{"autosize":true,"symbol":"%s","interval":"D","timezone":"Europe/Berlin",'
+           '"theme":"dark","style":"1","locale":"de","hide_top_toolbar":false,'
+           '"hide_legend":false,"allow_symbol_change":false,"save_image":false,'
+           '"backgroundColor":"rgba(19,26,34,1)"}' % sym)
+    return ('<h2>Live-Chart</h2>'
+            '<div class="tvchart">'
+            '<div class="tradingview-widget-container" style="height:100%%;width:100%%">'
+            '<div class="tradingview-widget-container__widget" style="height:100%%;width:100%%"></div>'
+            '<script type="text/javascript" '
+            'src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>'
+            '%s</script></div></div>'
+            '<div class="sub" style="margin-top:6px">Live-Kurs via TradingView (%s) – kann minimal von Pepperstone abweichen.</div>'
+            % (cfg, sym))
+
+def render_levelmap(d):
+    """Selbstgezeichnete SVG-Level-Karte aus Support/Resistance/Pivot + aktuellem Preis."""
+    pts = []
+    for l in d.get("levels", []):
+        v = parse_num(l.get("value", ""))
+        if v is not None:
+            pts.append((v, l["type"], l["name"], l["value"]))
+    price = parse_num(d.get("price", ""))
+    if len(pts) < 2:
+        return ""
+    allv = [p[0] for p in pts] + ([price] if price is not None else [])
+    vmin, vmax = min(allv), max(allv)
+    if vmax == vmin:
+        return ""
+    pad = (vmax - vmin) * 0.08
+    vmin -= pad; vmax += pad
+    W, H = 620, 300
+    top, bot = 24, 24
+    plotH = H - top - bot
+    x0, x1 = 96, 512
+    def y(v):
+        return top + (vmax - v) / (vmax - vmin) * plotH
+    col = {"res": "#ff5b5b", "sup": "#2ecc71", "piv": "#4aa3ff"}
+    svg = ['<svg viewBox="0 0 %d %d" width="100%%" role="img" aria-label="Level-Karte">' % (W, H)]
+    svg.append('<rect x="0" y="0" width="%d" height="%d" rx="12" fill="#131a22" stroke="#26313d"/>' % (W, H))
+    for v, typ, name, raw in pts:
+        yy = round(y(v), 1)
+        c = col.get(typ, "#8b98a5")
+        dash = ' stroke-dasharray="2 4"' if typ == "piv" else ''
+        svg.append('<line x1="%d" y1="%s" x2="%d" y2="%s" stroke="%s" stroke-width="1.4"%s opacity="0.85"/>' % (x0, yy, x1, yy, c, dash))
+        svg.append('<text x="%d" y="%s" fill="%s" font-size="11" font-family="Arial" text-anchor="end" dominant-baseline="middle">%s</text>' % (x0 - 8, yy, c, raw))
+        svg.append('<text x="%d" y="%s" fill="#8b98a5" font-size="10" font-family="Arial" dominant-baseline="middle">%s</text>' % (x1 + 8, yy, name))
+    if price is not None:
+        yy = round(y(price), 1)
+        svg.append('<line x1="%d" y1="%s" x2="%d" y2="%s" stroke="#f5a623" stroke-width="1.8" stroke-dasharray="6 3"/>' % (x0, yy, x1, yy))
+        svg.append('<circle cx="%d" cy="%s" r="4.5" fill="#f5a623"/>' % (x0, yy))
+        svg.append('<text x="%d" y="%s" fill="#f5a623" font-size="11" font-weight="700" font-family="Arial" dominant-baseline="middle">aktuell %s</text>' % (x1 + 8, yy, d.get("price", "")))
+    svg.append('</svg>')
+    return ('<h2>Level-Karte</h2><div class="levelmap">' + "".join(svg) +
+            '</div><div class="sub" style="margin-top:6px">Eigene Darstellung aus den Leveln oben · '
+            '<span style="color:#ff5b5b">Resistance</span> · '
+            '<span style="color:#4aa3ff">Pivot</span> · '
+            '<span style="color:#2ecc71">Support</span> · '
+            '<span style="color:#f5a623">aktueller Preis</span> · Näherungswerte.</div>')
+
 def de_date(iso):
     try:
         return datetime.strptime(iso, "%Y-%m-%d").strftime("%d.%m.%Y")
@@ -95,9 +187,11 @@ def render_analysis(d, css_path):
     html.append('</div></div>')
     html.append('<div class="cards">%s</div>' % cards)
     html.append('<div class="fazit"><b>Kurz-Fazit:</b> %s</div>' % d["fazit"])
+    html.append(render_tvchart(d.get("slug", ""), d.get("date", "")))
     html.append('<h2>Technische Level</h2>')
     html.append('<table><thead><tr><th>Typ</th><th>Level (≈ $)</th><th>Bedeutung</th></tr></thead><tbody>%s</tbody></table>' % rows)
     html.append('<div class="sub" style="margin-top:8px">%s</div>' % d["trend_note"])
+    html.append(render_levelmap(d))
     html.append('<h2>Fundamentale Treiber</h2><ul class="drv">%s</ul>' % drivers)
     html.append('<h2>Szenarien für den Tag</h2><div class="scen">')
     html.append('<div class="box bull"><h3>▲ Bull-Szenario</h3><p>%s</p></div>' % d["bull"])
