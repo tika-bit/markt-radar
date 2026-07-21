@@ -1,0 +1,39 @@
+{
+  "instrument": "Apple",
+  "slug": "aapl",
+  "symbol": "AAPL · Apple",
+  "date": "2026-07-21",
+  "datastand": "Schlusskurs 20.07.2026",
+  "price": "~326,59 $",
+  "change_day": "-7,15 $ (-2,14 %)",
+  "change_dir": "down",
+  "change_week": "knapp unter Allzeithoch",
+  "bias": "bullish",
+  "bias_label": "Bullish ▲",
+  "bias_note": "Rücksetzer vom ATH · Kursziele bis 364 $",
+  "cards": [
+    {"label": "AAPL", "price": "~326,59 $", "chg": "-7,15 $ (-2,14 %)", "dir": "down"},
+    {"label": "52-Wochen-Spanne", "price": "201,50 – 334,99 $", "chg": "kurz unter ATH-Zone", "dir": "up"},
+    {"label": "Marktkapitalisierung", "price": "~4,80 Bio. $", "chg": "+22,8 % seit Jahresstart", "dir": "up"}
+  ],
+  "fazit": "Apple markierte am 19.07. mit ~333,26 $ ein Allzeithoch, gab dann am 20.07. um <b>2,14 %</b> auf ~326,59 $ nach – gesunde Gewinnmitnahmen nach überkauftem RSI. Rückenwind liefert die China-Freigabe von Apple Intelligence (16.07., Partner Alibaba/Baidu) sowie Kursziel-Anhebungen (HSBC 364 $, Morgan Stanley 360 $). Wermutstropfen: Das KGV (~40) ist ambitioniert, KeyBanc bleibt mit 250 $-Ziel skeptisch. Vor den Quartalszahlen (30.07., Tim Cooks letzter Earnings-Call) charttechnisch <b>bullisch</b>, aber kurzfristig anfällig für weitere Konsolidierung.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "350", "note": "psychologisches Ziel bei Ausbruch"},
+    {"type": "res", "name": "Resistance 2", "value": "340", "note": "Zwischenwiderstand über ATH"},
+    {"type": "res", "name": "Resistance 1", "value": "335", "note": "Allzeithoch-Zone (334,99)"},
+    {"type": "piv", "name": "Pivot", "value": "330", "note": "runde Marke / zurückzuerobern"},
+    {"type": "sup", "name": "Support 1", "value": "325", "note": "erster Halt nach Rücksetzer"},
+    {"type": "sup", "name": "Support 2", "value": "318", "note": "vorherige Konsolidierungszone"},
+    {"type": "sup", "name": "Support 3", "value": "310", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--green)\">bullisch</b> (knapp unter ATH) · Momentum: kurzfristig überkauft, Rücksetzer läuft · Level gerundete Näherungswerte.",
+  "drivers": [
+    {"title": "China-KI-Freigabe", "text": "China genehmigte am 16.07. Apple-Intelligence-Funktionen (Partner Alibaba/Baidu) – nahm eine Belastung für das Greater-China-Geschäft und trieb den Kurs zeitweise +4,2 %."},
+    {"title": "Analysten", "text": "HSBC hält \"Buy\" mit Ziel 364 $, Morgan Stanley (Woodring) hob auf 360 $ an. Gegenposition: KeyBanc \"Underweight\" mit nur 250 $-Ziel."},
+    {"title": "Fundamentaldaten", "text": "Rekord-Services-Umsatz (~30,98 Mrd. $), Q-Umsatz ~111,2 Mrd. $ (+16,6 % YoY), achter EPS-Beat in Folge – stützt das Premium-Multiple."},
+    {"title": "Risiken", "text": "KGV ~40 lässt wenig Spielraum, überkaufter RSI, Insiderverkäufe (~87,6 Mio. $ in 3 Monaten) und laufende OpenAI-Geschäftsgeheimnis-Klage."},
+    {"title": "Termin", "text": "Quartalszahlen am 30.07.2026 – Tim Cooks letzter Earnings-Call (John Ternus wird CEO ab 01.09.); potenzieller Volatilitätsauslöser."}
+  ],
+  "bull": "Verteidigt der Kurs die <b>325 $</b>-Zone und erobert <b>330/335 $</b> zurück, ist der Weg zum Ausbruch über das ATH Richtung <b>340/350 $</b> frei. China-KI-Fantasie und starke Zahlen am 30.07. wären die Treiber.",
+  "bear": "Fällt AAPL unter <b>325 $</b>, droht ein Test von <b>318 $</b>, darunter <b>310 $</b>. Ambitionierte Bewertung, überkaufter RSI und ein enttäuschender Ausblick sind das bärische Risiko."
+}

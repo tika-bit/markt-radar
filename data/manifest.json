@@ -1,5 +1,5 @@
 {
-  "built": "20.07.2026 09:18 UTC",
+  "built": "21.07.2026 06:37 UTC",
   "categories": {
     "rohstoffe": {
       "name": "Rohstoffe",
@@ -40,6 +40,7 @@
       "name": "WTI Crude Oil",
       "category": "rohstoffe",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -47,6 +48,7 @@
       "name": "Gold",
       "category": "rohstoffe",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -54,6 +56,7 @@
       "name": "Silber",
       "category": "rohstoffe",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -61,6 +64,7 @@
       "name": "DAX",
       "category": "index",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -68,6 +72,7 @@
       "name": "Nasdaq 100",
       "category": "index",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -75,6 +80,7 @@
       "name": "Apple",
       "category": "aktien",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -82,6 +88,7 @@
       "name": "Microsoft",
       "category": "aktien",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -89,6 +96,7 @@
       "name": "EUR/USD",
       "category": "waehrungen",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     },
@@ -96,6 +104,7 @@
       "name": "EUR/AUD",
       "category": "waehrungen",
       "pages": [
+        "2026-07-21",
         "2026-07-20"
       ]
     }

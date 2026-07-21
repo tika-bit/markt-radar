@@ -1,0 +1,39 @@
+{
+  "instrument": "Nasdaq 100",
+  "slug": "nas100",
+  "symbol": "NAS100 · US Tech 100",
+  "date": "2026-07-21",
+  "datastand": "Stand 20.07.2026",
+  "price": "~28.500",
+  "change_day": "leichte Erholung",
+  "change_dir": "up",
+  "change_week": "−4 % Vorwoche, ~7 % unter Hoch",
+  "bias": "neutral",
+  "bias_label": "Neutral ◆",
+  "bias_note": "Megacap-Earnings-Woche · RSI ~45",
+  "cards": [
+    {"label": "NAS100 / US Tech 100", "price": "~28.500", "chg": "Erholung von ~28.200", "dir": "up"},
+    {"label": "Momentum RSI(14)", "price": "~45", "chg": "unter der Mitte, dreht nach oben", "dir": "up"},
+    {"label": "Philadelphia SOX", "price": "+1,9 %", "chg": "aber ~20 % unter Juni-Hoch", "dir": "up"}
+  ],
+  "fazit": "Der Nasdaq 100 hat sich nach einer Korrektur von rund 7 % vom Hoch und einer Vorwoche mit −4 % im Bereich ~28.400 stabilisiert und am Montag leicht erholt (Chip-Rebound, Alphabet +2,9 % dank AI-Server-Chip-Meldung). Charttechnisch dominiert jedoch ein absteigendes Dreieck mit tieferen Hochs seit Ende Juni. Entscheidend wird die Megacap-Earnings-Woche: <b>Alphabet und Tesla</b> berichten Mittwoch, dazu Intel, IBM und Texas Instruments. Bias <b>neutral</b> – solange 28.186 hält, bleibt eine Gegenbewegung Richtung 29.465 (20-Tage-Linie) möglich; darunter drohen tiefere Kurse.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "29.465", "note": "20-Tage-Linie · Schlüssel-Widerstand"},
+    {"type": "res", "name": "Resistance 2", "value": "29.100", "note": "früherer Support, nun Widerstand"},
+    {"type": "res", "name": "Resistance 1", "value": "28.800", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "28.500", "note": "Drehpunkt / Intraday-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "28.400", "note": "gehaltene Primär-Unterstützung"},
+    {"type": "sup", "name": "Support 2", "value": "28.186", "note": "Juni-Tief · Bruch kippt den Bias"},
+    {"type": "sup", "name": "Support 3", "value": "27.700", "note": "Abwärtsziel bei Bruch des Juni-Tiefs"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--red)\">korrektiv / tiefere Hochs</b> · Momentum: RSI ≈ 45, dreht nach oben · Volatilität: hoch, earnings-getrieben (Alphabet & Tesla Mi.).",
+  "drivers": [
+    {"title": "Megacap-Earnings", "text": "Alphabet und Tesla berichten Mittwoch, dazu Intel, IBM und Texas Instruments – die Qualität der KI-Umsätze entscheidet über die Richtung des Tech-Index."},
+    {"title": "Halbleiter-Rebound", "text": "Memory- und Chip-Werte führten die Montags-Erholung an (SOX +1,9 %), notieren aber weiter rund 20 % unter dem Juni-Hoch – Capex-Skepsis bleibt."},
+    {"title": "Alphabet-Impuls", "text": "Alphabet legte 2,9 % zu nach Berichten über einen eigenen KI-Server-Chip zur Effizienzsteigerung – stützte die Gesamtstimmung."},
+    {"title": "Chart-Struktur", "text": "Absteigendes Dreieck mit tieferen Hochs seit Ende Juni; zwischen 28.400 und der 26.400er-Zone gibt es wenig Unterstützung – Bruch von 28.186 öffnet Raum nach unten."},
+    {"title": "Fed & EZB", "text": "Markt preist ~14 % Chance auf eine Juli-Erhöhung und ~55 % für September; EZB tagt Donnerstag (Hold bei 2,25 % erwartet) – Zinsen bleiben ein Bremsfaktor."}
+  ],
+  "bull": "Solange <b>28.186</b> hält, ist eine Erholung Richtung <b>29.465</b> (20-Tage-Linie) möglich. Starke Alphabet-/Tesla-Zahlen mit überzeugender KI-Umsatzstory wären der Treiber. Bestätigung: Schluss über 28.800.",
+  "bear": "Verlust von <b>28.186</b> aktiviert <b>27.700</b>, im Extrem die <b>26.400</b>-Zone. Enttäuschende Megacap-Earnings oder erneute Capex-Skepsis bei Chips sind das bärische Szenario."
+}

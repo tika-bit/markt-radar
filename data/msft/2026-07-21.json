@@ -1,0 +1,39 @@
+{
+  "instrument": "Microsoft",
+  "slug": "msft",
+  "symbol": "MSFT · Microsoft",
+  "date": "2026-07-21",
+  "datastand": "Schlusskurs 20.07.2026",
+  "price": "~420,77 $",
+  "change_day": "+6,81 $ (+1,65 %)",
+  "change_dir": "up",
+  "change_week": "erholt / im Aufwind",
+  "bias": "neutral",
+  "bias_label": "Neutral / leicht bullisch ◆",
+  "bias_note": "Erholung vor den Zahlen · Capex bleibt Thema",
+  "cards": [
+    {"label": "MSFT", "price": "~420,77 $", "chg": "+6,81 $ (+1,65 %)", "dir": "up"},
+    {"label": "52-Wochen-Spanne", "price": "349,20 – 555,45 $", "chg": "unteres Mittelfeld", "dir": "flat"},
+    {"label": "Analysten-Kursziel", "price": "~550 $", "chg": "Outperform · +31 % Potenzial", "dir": "up"}
+  ],
+  "fazit": "Microsoft hat sich von den ~394 $ der Vorwoche deutlich erholt und schloss am Montag +1,65 % bei ~420,77 $ – der Kurs läuft mit positivem Momentum auf die Quartalszahlen am 29.07. zu. Treiber sind die weiter starke Azure-Dynamik (~40 % Wachstum) und die KI-Fantasie (AI-Run-Rate ~37 Mrd. $, +123 %), während der massive Capex-Ausblick (~190–195 Mrd. $ für FY26) die Margen und die Stimmung bremst. Die Wall Street bleibt konstruktiv (Ziele überwiegend 515–550 $). Kurzfristig <b>neutral bis leicht bullisch</b> – die Zahlen am 29.07. sind der entscheidende Katalysator.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "445", "note": "Richtung 450er-Zone"},
+    {"type": "res", "name": "Resistance 2", "value": "435", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "425", "note": "runde Marke direkt darüber"},
+    {"type": "piv", "name": "Pivot", "value": "421", "note": "aktueller Bereich / Drehpunkt"},
+    {"type": "sup", "name": "Support 1", "value": "410", "note": "erster Halt"},
+    {"type": "sup", "name": "Support 2", "value": "400", "note": "runde Marke / Zwischenunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "390", "note": "Vorwochen-Konsolidierung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">kurzfristig aufwärts</b> (Erholung nach Vorwochentief) · Momentum: verbessert nach +1,65 % · Bewertung KGV ~22–23 · Level gerundete Näherungswerte.",
+  "drivers": [
+    {"title": "Azure / Cloud", "text": "Azure wächst weiter mit ~40 %, Microsoft-Cloud-Umsatz zuletzt ~54,5 Mrd. $ (+29 %) – zentraler Wachstumsmotor vor den Zahlen."},
+    {"title": "KI-Momentum", "text": "AI-Run-Rate ~37 Mrd. $ (+123 % ggü. Vorjahr), Auftragsbestand ~627 Mrd. $ – die KI-Nachfrage stützt die Bewertung."},
+    {"title": "Capex-Bremse", "text": "Capex-Ausblick ~190–195 Mrd. $ für FY26 drückt auf freien Cashflow und Margen – der Haupt-Belastungsfaktor."},
+    {"title": "Analysten (Stütze)", "text": "Überwiegend Outperform, Kursziele meist 515–550 $ (Median ~550, ≈ +31 %) – klarer Aufschlag zum aktuellen Kurs."},
+    {"title": "Termin", "text": "Q4-Zahlen (FY26) am 29.07.2026 – Konsens EPS ~4,23 $, Umsatz ~87,6 Mrd. $; Fokus auf Azure-Rate, Copilot-Seats und Capex-Ausblick."}
+  ],
+  "bull": "Bestätigung über <b>425 $</b> öffnet <b>435/445 $</b>. Starke Azure-/KI-Zahlen am 29.07. und ein gemanagter Capex-Ausblick wären die Treiber – die Analystenziele (~550 $) liegen deutlich höher.",
+  "bear": "Rückfall unter <b>410 $</b> aktiviert <b>400</b>, darunter <b>390 $</b> zurück in die Vorwochen-Zone. Enttäuschende Cloud-Zahlen oder ein Capex-Schock sind das bärische Szenario."
+}

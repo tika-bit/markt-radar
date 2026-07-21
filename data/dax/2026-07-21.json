@@ -1,0 +1,39 @@
+{
+  "instrument": "DAX",
+  "slug": "dax",
+  "symbol": "GER40 · DAX",
+  "date": "2026-07-21",
+  "datastand": "Stand 21.07.2026",
+  "price": "~24.850",
+  "change_day": "~+0,3 %",
+  "change_dir": "up",
+  "change_week": "seitwärts / stabilisiert",
+  "bias": "neutral",
+  "bias_label": "Neutral / Richtungssuche ◆",
+  "bias_note": "Range 24.700–25.100 · Nahost & EZB im Fokus",
+  "cards": [
+    {"label": "DAX / GER40", "price": "~24.850", "chg": "~+0,3 % Tag", "dir": "up"},
+    {"label": "Jahresverlauf", "price": "+4,2 % YTD", "chg": "vom Hoch 25.900 (06.07.) entfernt", "dir": "up"},
+    {"label": "Fokus", "price": "EZB Do. · Nahost", "chg": "25.000-Marke im Visier", "dir": "flat"}
+  ],
+  "fazit": "Der DAX arbeitet sich nach zwei Verlustwochen zurück und pendelt am Dienstag um <b>24.850</b> mit leichtem Plus. Es hat sich ein Handelskorridor zwischen <b>24.700 und 25.100</b> etabliert; die runde 25.000er-Marke bleibt diese Woche das Ziel. Stützend wirken nachlassende Ölpreise (Hoffnung auf Entspannung in der Straße von Hormuz) und feste Einzelwerte wie Siemens Energy und Fresenius. Bremse bleibt die unberechenbare Iran-Lage – seit zehn Nächten US-Operationen bei parallelen Friedensbemühungen. Kurzfristig <b>neutral / Richtungssuche</b>: Impulse liefern die Berichtssaison und der EZB-Zinsentscheid am Donnerstag.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "25.500", "note": "orientierende Marke (gerundet)"},
+    {"type": "res", "name": "Resistance 2", "value": "25.100", "note": "Oberkante Handelsrange"},
+    {"type": "res", "name": "Resistance 1", "value": "25.000", "note": "runde Marke / Wochenziel"},
+    {"type": "piv", "name": "Pivot", "value": "24.850", "note": "aktueller Stand / Range-Mitte"},
+    {"type": "sup", "name": "Support 1", "value": "24.700", "note": "Unterkante Handelsrange"},
+    {"type": "sup", "name": "Support 2", "value": "24.460", "note": "TE-Projektion Quartalsende"},
+    {"type": "sup", "name": "Support 3", "value": "24.200", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">seitwärts / Range</b> · Momentum: stabilisierend · Level sind gerundete Orientierungsmarken (Näherungswerte).",
+  "drivers": [
+    {"title": "Nahost & Öl", "text": "Unberechenbare Iran-Lage: seit zehn Nächten US-Operationen bei parallelen Vermittlungsversuchen. Nachlassende Ölpreise (Hoffnung auf Entspannung an der Straße von Hormuz) stützen zuletzt."},
+    {"title": "EZB / Geldpolitik", "text": "Zinsentscheid am Donnerstag: Erwartet wird eine Pause; Balanceakt zwischen ölbedingten Inflationsrisiken und schwachen Wachstumsaussichten."},
+    {"title": "Berichtssaison", "text": "Anleger warten auf Signale aus der laufenden Berichtssaison, um neue Positionen zu rechtfertigen – das hält den Index in der Range."},
+    {"title": "Einzelwerte", "text": "Feste Werte stützen: Siemens Energy (+~3,4 %, UBS-Ziel auf 210 €), Fresenius (+~2 %), Salzgitter (+~3 %). Lufthansa (−~2 %) unter Nahost-Druck."},
+    {"title": "Tech / Chips", "text": "Beobachtet wird, ob sich die Erholung asiatischer Chipwerte auf deutsche Halbleiter wie Infineon überträgt – bislang zaghaft."}
+  ],
+  "bull": "Hält die Öl-Entspannung an und liefert die Berichtssaison positive Impulse, ist der Sprung über <b>25.000</b> und die Range-Oberkante <b>25.100</b> drin – danach öffnet sich Luft Richtung <b>25.500</b>. Eine drehende Chip-Ecke wäre Rückenwind.",
+  "bear": "Eskaliert die Iran-Lage erneut und ziehen die Ölpreise an, droht der Bruch der Range-Unterkante <b>24.700</b>. Darunter rücken <b>24.460</b> (TE-Projektion) und <b>24.200</b> in den Fokus."
+}

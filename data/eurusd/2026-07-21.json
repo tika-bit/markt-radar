@@ -1,0 +1,39 @@
+{
+  "instrument": "EUR/USD",
+  "slug": "eurusd",
+  "symbol": "EUR/USD",
+  "date": "2026-07-21",
+  "datastand": "Stand 20.07.2026",
+  "price": "~1,1440",
+  "change_day": "leicht erholt",
+  "change_dir": "up",
+  "change_week": "Seitwärtsrange 1,1400–1,1480",
+  "bias": "neutral",
+  "bias_label": "Neutral ►",
+  "bias_note": "Range vor EZB · weichere US-Daten · hawkishe Fed",
+  "cards": [
+    {"label": "EUR/USD", "price": "~1,1440", "chg": "über 200er-MA", "dir": "up"},
+    {"label": "Handelsspanne", "price": "1,1400 – 1,1480", "chg": "seit ~10 Tagen", "dir": "flat"},
+    {"label": "Termin", "price": "EZB-Sitzung", "chg": "Do, 23.07.", "dir": "flat"}
+  ],
+  "fazit": "EUR/USD notiert nahe 1,1440 und hält sich seit rund zehn Tagen in einer engen Seitwärtsrange (~1,1400–1,1480). Weichere US-Daten (erstmals seit fast einem Jahr fallende Erzeugerpreise) haben den Dollar-Druck etwas gelöst und den Euro über die 200er-Linie (1,1434) getragen; darüber bremst die 50er-MA (~1,1445) noch. Zugleich bleibt die Fed hawkish (Inflation „zu hoch\") und teures Öl durch US-Iran-Spannungen wirkt als Gegengewicht. Vor der EZB-Sitzung am Donnerstag (erwartete Zinspause, Fokus auf Lagardes Ton) ist die Lage kurzfristig <b>neutral</b>: Ausbruch aus der Range gibt die Richtung vor.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "1,1550", "note": "übergeordneter Widerstand"},
+    {"type": "res", "name": "Resistance 2", "value": "1,1500", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "1,1480", "note": "Range-Oberkante · Ausbruchsmarke"},
+    {"type": "piv", "name": "Pivot", "value": "1,1440", "note": "aktueller Bereich · 50er-MA ~1,1445"},
+    {"type": "sup", "name": "Support 1", "value": "1,1400", "note": "Range-Unterkante · Schlüsselmarke"},
+    {"type": "sup", "name": "Support 2", "value": "1,1380", "note": "Folgeunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "1,1300", "note": "Bruchziel bei Range-Verlust"}
+  ],
+  "trend_note": "Trend: <b>neutral</b> (Seitwärtsrange) · Momentum: RSI ~63, aufbaubar aber nicht überkauft · Level als Näherungswerte.",
+  "drivers": [
+    {"title": "EZB (Do, 23.07.)", "text": "Markt erwartet Zinspause; im Fokus steht Lagardes Ton zu Nahost-Effekten auf Wachstum und Inflation. Risikotermin der Woche."},
+    {"title": "US-Daten (weicher)", "text": "Erstmals seit fast einem Jahr fallende Erzeugerpreise lösen den Dollar-Druck etwas – leicht stützend für EUR/USD."},
+    {"title": "Fed (hawkish)", "text": "Notenbank betont, die Inflation sei weiter „zu hoch\" – begrenzt das Aufwärtspotenzial des Euro trotz weicherer Daten."},
+    {"title": "Öl & Geopolitik", "text": "Frische US-Iran-Spannungen halten die Ölpreise hoch, bremsen das Wachstum und stützen zugleich die USD-Nachfrage."},
+    {"title": "Charttechnik", "text": "Range 1,1400–1,1480 intakt; Kurs über 200er-MA, aber unter 50er-MA. Ausbruch nach oben/unten liefert das nächste Signal."}
+  ],
+  "bull": "Ein nachhaltiger Bruch über <b>1,1480</b> (Range-Oberkante, 50er-MA) öffnet <b>1,1500–1,1550</b>. Auslöser wären ein dovisher Fed-Ton oder eine überraschend straffe EZB.",
+  "bear": "Rückfall unter <b>1,1400</b> aktiviert wieder <b>1,1380/1,1300</b>. Hawkishe Fed und öl-getriebene USD-Stärke bleiben das bärische Kernargument."
+}

@@ -1,0 +1,39 @@
+{
+  "instrument": "Gold",
+  "slug": "gold",
+  "symbol": "XAU/USD · Gold",
+  "date": "2026-07-21",
+  "datastand": "Dienstag 21.07.2026 (Intraday)",
+  "price": "~4.040 $",
+  "change_day": "+22 $ (+0,5 %)",
+  "change_dir": "up",
+  "change_week": "+~1 % (Erholung)",
+  "bias": "neutral",
+  "bias_label": "Neutral / leicht bullisch ◆",
+  "bias_note": "Erholung über 4.000 · abwärts-Trendlinie gebrochen",
+  "cards": [
+    {"label": "Gold XAU/USD", "price": "~4.040 $", "chg": "+22 $ (+0,5 %) Tag · Erholung über 4.000 $", "dir": "up"},
+    {"label": "Allzeithoch (Jan 2026)", "price": "5.608 $", "chg": "aktuell ~28 % darunter", "dir": "down"},
+    {"label": "Treiber-Mix", "price": "Fed vs. Geopolitik", "chg": "higher-for-longer ↔ Safe-Haven", "dir": "flat"}
+  ],
+  "fazit": "Gold erholt sich am Dienstag um rund +0,5 % auf etwa 4.040 $ und bricht die kurzfristige Abwärts-Trendlinie – nach der Vorwochen-Konsolidierung verteidigen die Bullen den Bereich um 3.964 $ (Triple-Bottom) und bauen eine höhere Basis auf. Rückenwind liefert die Safe-Haven-Nachfrage aus dem US-Iran-Konflikt (Straße von Hormuz) sowie steigende Ölpreise (Brent ~90 $). Gegenwind bleibt die <b>higher-for-longer</b>-Fed vor dem Meeting am 28./29. Juli, ein fester Dollar und 30-jährige Renditen über 5 %, die die Opportunitätskosten des zinslosen Metalls erhöhen. Netto: kurzfristig <b>neutral bis leicht bullisch</b>, solange 4.000 $ hält.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "≈ 4.140", "note": "orientierende Marke (gerundet)"},
+    {"type": "res", "name": "Resistance 2", "value": "≈ 4.095", "note": "nächstes Ziel bei Fortsetzung"},
+    {"type": "res", "name": "Resistance 1", "value": "≈ 4.056", "note": "unmittelbarer Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "≈ 4.000", "note": "runde Marke / Bull-Bear-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "≈ 3.964", "note": "Triple-Bottom / erster Halt"},
+    {"type": "sup", "name": "Support 2", "value": "≈ 3.930", "note": "Zwischenunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "≈ 3.880", "note": "übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--blue)\">kurzfristige Erholung</b> nach Konsolidierung · Momentum: anziehend, Abwärts-Trendlinie gebrochen · Level sind gerundete Orientierungsmarken (Näherungswerte).",
+  "drivers": [
+    {"title": "Fed-Politik (Hauptgegenwind)", "text": "Markt preist eine higher-for-longer-Fed; das Meeting am 28./29. Juli gilt als richtungsweisend. Höhere Zinsen und 30-jährige Renditen über 5 % erhöhen die Opportunitätskosten des zinslosen Goldes."},
+    {"title": "Geopolitik (Stütze)", "text": "Militärische Zusammenstöße zwischen den USA und dem Iran gefährden die Straße von Hormuz (~20 % des Öltransports) und stützen die Safe-Haven-Nachfrage."},
+    {"title": "Öl & Inflation", "text": "Brent nahe 90 $, WTI über 84 $ – steigende Energiepreise befeuern Inflationssorgen. Zweischneidig: kurzfristig zinstreibend (bärisch), mittelfristig Absicherungsargument (bullisch)."},
+    {"title": "Dollar & Renditen", "text": "Robuster US-Dollar verteuert Gold für internationale Käufer und begrenzt das Aufwärtspotenzial; hohe Anleiherenditen wirken zusätzlich dämpfend."},
+    {"title": "Zentralbanken & Charttechnik", "text": "Strukturelle Nachfrage der Notenbanken (~1.000 t p.a.) bildet einen Boden; charttechnisch verteidigtes Triple-Bottom bei ~3.964 $ und Bruch der Abwärts-Trendlinie stärken die Erholung."}
+  ],
+  "bull": "Bruch der Abwärts-Trendlinie und ein verteidigtes Triple-Bottom bei <b>3.964 $</b> eröffnen bei Rückeroberung von <b>4.056 $</b> den Weg Richtung <b>4.095 / 4.140 $</b>. Weitere Hormuz-Eskalation oder ein weicherer Fed-Ton wären die Haupttreiber.",
+  "bear": "Bestätigt hawkishe Fed am 28./29. Juli und ein festerer Dollar drücken zurück unter <b>4.000 $</b>; darunter drohen Tests von <b>3.964 / 3.930 $</b>. Hohe Realzinsen, die die Fed restriktiv halten, sind das bärische Kernargument."
+}

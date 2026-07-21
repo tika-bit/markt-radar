@@ -1,0 +1,39 @@
+{
+  "instrument": "Silber",
+  "slug": "silber",
+  "symbol": "XAG/USD · Silber",
+  "date": "2026-07-21",
+  "datastand": "Handelsschluss 20.07.2026",
+  "price": "~56,87 $",
+  "change_day": "+1,74 %",
+  "change_dir": "up",
+  "change_week": "Abwärtstrend – Erholungsversuch von 54er-Zone",
+  "bias": "bearish",
+  "bias_label": "Bearish ▼",
+  "bias_note": "Abwärtstrend (Death Cross) · Defizit begrenzt Downside",
+  "cards": [
+    {"label": "Silber XAG/USD", "price": "~56,87 $", "chg": "Tagesgewinn +1,74 % – Bounce im Abwärtstrend", "dir": "up"},
+    {"label": "50/200-Tage-EMA", "price": "Death Cross bestätigt", "chg": "50-EMA unter 200-EMA gekreuzt → Momentum abwärts", "dir": "down"},
+    {"label": "Angebot/Nachfrage", "price": "Defizit", "chg": "46,3 Mio. oz · 6. Jahr in Folge · stützt", "dir": "up"}
+  ],
+  "fazit": "Silber springt am Montag um 1,74 % auf ~56,87 $, doch der übergeordnete Rahmen bleibt schwach: Der Preis hat in den letzten Wochen deutlich nachgegeben, und die 50-Tage-EMA ist unter die 200-Tage-EMA gerutscht (Death Cross) – ein klassisches bärisches Signal. Belastend wirken ein festerer US-Dollar (Safe-Haven-Nachfrage aus dem Nahost-Konflikt), steigende Anleiherenditen sowie die Erwartung länger hoher Zinsen (öl-getriebene Inflation). Gegengewicht bleibt das strukturelle Angebotsdefizit (Silver Institute: 46,3 Mio. oz, 6. Jahr in Folge) plus robuste Industrienachfrage (EV, KI-Infrastruktur, Solar). Netto: kurzfristig <b>bärisch</b> mit Erholungsversuch, das Defizit begrenzt aber das Abwärtspotenzial.",
+  "levels": [
+    {"type": "res", "name": "Resistance 4", "value": "61,50", "note": "übergeordnet · frühere Tiefs (März/Juni)"},
+    {"type": "res", "name": "Resistance 3", "value": "60,40", "note": "runde 60er-Marke"},
+    {"type": "res", "name": "Resistance 2", "value": "58,90", "note": "Zwischenwiderstand / alte Range"},
+    {"type": "res", "name": "Resistance 1", "value": "57,80", "note": "unmittelbar · Reaktionszone"},
+    {"type": "sup", "name": "Support 1", "value": "55,60", "note": "primäre Unterstützung"},
+    {"type": "sup", "name": "Support 2", "value": "54,25", "note": "unmittelbarer Schlüsselhalt (Wochentief-Zone)"},
+    {"type": "sup", "name": "Support 3", "value": "52,40", "note": "übergeordnet · Richtung 50er-Bereich"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--red)\">bärisch / abwärts</b> (Death Cross: 50-EMA unter 200-EMA) · Momentum: Erholungsversuch nach überverkauftem Rutsch · Range grob 54,25–57,80 $.",
+  "drivers": [
+    {"title": "US-Dollar / Safe-Haven", "text": "Safe-Haven-Nachfrage aus den Nahost-Spannungen treibt den Dollar höher und belastet Edelmetalle direkt – aktuell der stärkste Gegenwind für Silber."},
+    {"title": "Zinsen / Anleiherenditen", "text": "Steigende Treasury-Renditen erhöhen die Opportunitätskosten des zinslosen Silbers. Markt preist \"higher for longer\" – bärisch."},
+    {"title": "Strukturelles Defizit", "text": "Silver Institute erwartet ein Angebotsdefizit von 46,3 Mio. oz – das 6. Defizitjahr in Folge. Fundamentale Stütze, die die Downside begrenzt."},
+    {"title": "Industrienachfrage", "text": "Robuste Nachfrage aus EV, KI-Infrastruktur, Rechenzentren und Solar untermauert das Defizit-Narrativ mittelfristig – langfristig bullisch."},
+    {"title": "Konjunkturdaten", "text": "Anstehende PMI-Zahlen aus USA, China, UK und Europa steuern den Industrienachfrage-Ausblick und damit die nächste Kursrichtung."}
+  ],
+  "bull": "Rückeroberung von <b>57,80 $</b> und ein Tagesschluss über <b>58,90 $</b> entschärfen das Death-Cross-Bild und öffnen <b>60,40 / 61,50 $</b>. Treiber: fallender Dollar + Defizit-Nachfrage. Bestätigung: nachhaltiger Halt über 58 $.",
+  "bear": "Verlust von <b>54,25 $</b> aktiviert <b>52,40 $</b> und darunter die tiefere Struktur. Fester Dollar, steigende Renditen und der bestätigte Death Cross sind das bärische Kernszenario, solange der Bounce nicht über 58 $ trägt."
+}

@@ -1,0 +1,39 @@
+{
+  "instrument": "WTI Crude Oil",
+  "slug": "wti",
+  "symbol": "US Oil / WTI",
+  "date": "2026-07-21",
+  "datastand": "Stand Montagsschluss 20.07.2026",
+  "price": "~81,14 $",
+  "change_day": "-1,36 $ (-1,6 %)",
+  "change_dir": "down",
+  "change_week": "~ +9 % (rollierend, nach +16 % Vorwoche)",
+  "bias": "neutral",
+  "bias_label": "Neutral ◆",
+  "bias_note": "Rücksetzer vom 50-Tage-MA · Konsolidierung",
+  "cards": [
+    {"label": "WTI / US Oil", "price": "~81,14 $", "chg": "-1,36 $ (-1,6 %) Tag · abgewiesen am 50-Tage-MA", "dir": "down"},
+    {"label": "Brent Crude", "price": "~88,22 $", "chg": "-2,78 $ (-3,0 %) Tag · Spread WTI ≈ 7 $", "dir": "down"},
+    {"label": "Kurvenstruktur", "price": "Backwardation", "chg": "Prompt-Prämie hält · Cushing physisch eng", "dir": "up"}
+  ],
+  "fazit": "WTI beendet den Montag bei ~81,14 $ – volatile Sitzung mit Eröffnung 82,90 $, Spitze 84,62 $ und anschließendem Abverkauf bis nahe Tagestief. Der Kurs prallte am 50-Tage-MA (~83,20 $) ab; die geopolitische Risikoprämie aus der Vorwoche (+16 %) bröckelt leicht, während OPEC+-Angebotsausweitung und gedämpfte Nachfrageaussichten den Deckel bilden. Übergeordnet bleibt der Trend über der 200-Tage-Linie konstruktiv, doch das Momentum stockt unter dem 50-Tage-MA. Tages-Bias <b>neutral</b>: Konsolidierung zwischen 81 $ und 83 $, headline-getrieben und in beide Richtungen anfällig. Rückeroberung von 83,20 $ öffnet 84,62 $, ein Bruch unter 81,10 $ aktiviert 78,42 $.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "90,00", "note": "Nächster Großwiderstand bei erneutem Ausbruch"},
+    {"type": "res", "name": "Resistance 2", "value": "84,62", "note": "Tageshoch 20.07. – getestet und abgewiesen"},
+    {"type": "res", "name": "Resistance 1", "value": "83,20", "note": "50-Tage-MA – kritischer Dreh-/Widerstand"},
+    {"type": "piv", "name": "Pivot", "value": "≈ 82,00", "note": "Tages-Drehpunkt / Bull-Bear-Grenze"},
+    {"type": "sup", "name": "Support 1", "value": "81,10", "note": "Tagestief 20.07. · erster Halt"},
+    {"type": "sup", "name": "Support 2", "value": "78,42", "note": "Konsolidierungs-Support · Bruch kippt Bias"},
+    {"type": "sup", "name": "Support 3", "value": "73,37", "note": "Übergeordnete Unterstützung"}
+  ],
+  "trend_note": "Trend: übergeordnet <b style=\"color:var(--green)\">konstruktiv</b> (über 200-Tage-MA), aber <b style=\"color:var(--orange)\">am 50-Tage-MA abgewiesen</b> · Momentum: nachlassend nach Vorwochen-Rally · Volatilität: erhöht, headline-getrieben – weite Tagesspannen wahrscheinlich.",
+  "drivers": [
+    {"title": "Geopolitik (Nahost / Hormuz)", "text": "Die akute Risikoprämie der Vorwoche fällt leicht zurück; Meldungen zu einer möglichen US-Iran-Entspannung dämpfen den Aufschlag. Straße von Hormuz (~20 % des globalen Öltransports) bleibt latenter Risikofaktor – jede neue Eskalations-Headline kann den Preis schnell zurückdrehen."},
+    {"title": "Technik (50-Tage-MA)", "text": "WTI wurde am 50-Tage-MA (~83,20 $) abgewiesen und schloss nahe Tagestief bei 81,14 $. Solange der Kurs unter dem MA notiert, dominiert Konsolidierung; erst ein Tagesschluss darüber reaktiviert die Aufwärtsbewegung."},
+    {"title": "OPEC+", "text": "Fortgesetzte Angebotsausweitung (zuletzt +188 kb/d für August) wirkt als struktureller Gegenwind und begrenzt das Aufwärtspotenzial, sobald die Schifffahrtsrisiken nachlassen."},
+    {"title": "Angebot/Nachfrage", "text": "OPEC und IEA halten an gesenkten Nachfragewachstums-Prognosen 2026 fest (schwächere Konjunktur, verhaltene Asien-Nachfrage) – fundamentales Gegengewicht zur geopolitischen Rally."},
+    {"title": "Kurvenstruktur", "text": "Backwardation hält an – prompte Kontrakte teurer als spätere; enge Cushing-Bestände signalisieren weiterhin knappe physische Versorgung und stützen den Frontmonat."}
+  ],
+  "bull": "Rückeroberung des 50-Tage-MA bei <b>83,20 $</b> und ein Halt darüber öffnen den Weg zurück zum Tageshoch <b>84,62 $</b> und bei neuer Eskalation Richtung <b>90 $</b>. Enge Cushing-Bestände und Backwardation stützen. Bestätigung: Tagesschluss > 83,20 $.",
+  "bear": "Anhaltende Deeskalations-Signale und Gewinnmitnahmen lassen die Risikoprämie weiter abschmelzen. Bruch unter <b>81,10 $</b> aktiviert die Konsolidierungs-Zone bei <b>78,42 $</b>, darunter Ziel <b>73,37 $</b>. OPEC+-Angebot und schwache Nachfrage liefern das fundamentale Argument."
+}

@@ -1,0 +1,39 @@
+{
+  "instrument": "EUR/AUD",
+  "slug": "euraud",
+  "symbol": "EUR/AUD",
+  "date": "2026-07-21",
+  "datastand": "Stand 21.07.2026",
+  "price": "~1,6300",
+  "change_day": "−0,50 %",
+  "change_dir": "down",
+  "change_week": "fallend (−0,86 %)",
+  "bias": "bearish",
+  "bias_label": "Leicht bärisch ▽",
+  "bias_note": "unter 50- & 200-Tage-SMA · RSI 42",
+  "cards": [
+    {"label": "EUR/AUD", "price": "~1,6300", "chg": "−0,50 % (24h)", "dir": "down"},
+    {"label": "50 / 200-Tage-SMA", "price": "1,64 / 1,66", "chg": "beide als Deckel", "dir": "down"},
+    {"label": "Momentum RSI(14)", "price": "42,34", "chg": "neutral-schwach", "dir": "down"}
+  ],
+  "fazit": "EUR/AUD ist auf rund 1,6300 gefallen und notiert damit unter der 50-Tage-SMA (1,64), die nun zum Widerstand wird; die 200-Tage-SMA bei 1,66 deckelt übergeordnet. Auf Wochensicht liegt der Kurs mit rund −0,9 % im Minus, das Sentiment ist mit 17 zu 9 bärischen Signalen klar <b>bärisch geprägt</b>. RSI ~42 zeigt schwaches, aber nicht überverkauftes Momentum. Solange kein AUD-Gegenwind aufkommt (fallende Rohstoffe, straffere EZB), überwiegt der <b>leichte Abwärtsdruck</b> innerhalb der übergeordneten Range.",
+  "levels": [
+    {"type": "res", "name": "Resistance 3", "value": "1,6600", "note": "200-Tage-SMA (Deckel)"},
+    {"type": "res", "name": "Resistance 2", "value": "1,6500", "note": "Zwischenwiderstand"},
+    {"type": "res", "name": "Resistance 1", "value": "1,6400", "note": "50-Tage-SMA (jetzt Widerstand)"},
+    {"type": "piv", "name": "Pivot", "value": "1,6300", "note": "aktueller Bereich"},
+    {"type": "sup", "name": "Support 1", "value": "1,6200", "note": "erster Halt (Kurzfrist-Ziel)"},
+    {"type": "sup", "name": "Support 2", "value": "1,6100", "note": "Zwischenunterstützung"},
+    {"type": "sup", "name": "Support 3", "value": "1,6000", "note": "übergeordnete Unterstützung / runde Marke"}
+  ],
+  "trend_note": "Trend: <b style=\"color:var(--red)\">leicht bärisch</b> (unter 50- & 200-SMA) · Momentum: RSI ≈ 42, schwach · Level als Näherungswerte.",
+  "drivers": [
+    {"title": "Gleitende Durchschnitte", "text": "Kurs unter 50-Tage-SMA (1,64) und 200-Tage-SMA (1,66) – beide wirken jetzt als Deckel, Bild eingetrübt."},
+    {"title": "Rohstoff-AUD", "text": "Fester Australischer Dollar bei robusten Metall-/Energiepreisen belastet EUR/AUD – der Aussie bleibt der stärkere Part."},
+    {"title": "Zinsdifferenz", "text": "RBA hielt die Zinsen zuletzt stabil; die relative Ausrichtung zur EZB bestimmt die mittelfristige Richtung – EZB-Impuls im Blick."},
+    {"title": "Momentum", "text": "RSI ~42 und 17 zu 9 bärische Indikatoren signalisieren kurzfristigen Abwärtsdruck ohne starke Dynamik."},
+    {"title": "Ausblick", "text": "Prognosen sehen den Kurs zum Jahresende wieder nahe 1,64 – kurzfristig aber weiter tendenziell schwächer."}
+  ],
+  "bull": "Eine Rückeroberung der 50-SMA bei <b>1,6400</b> entschärft das Bild und öffnet <b>1,6500/1,6600</b>. Nötig wären ein schwächerer AUD (fallende Rohstoffe) oder eine straffere EZB.",
+  "bear": "Unter <b>1,6200</b> werden <b>1,6100/1,6000</b> aktiviert. Fester AUD durch hohe Rohstoffpreise bleibt das dominierende bärische Szenario."
+}
